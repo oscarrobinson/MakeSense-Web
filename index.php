@@ -1,19 +1,24 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Meth Test 1</title>
+<title>Sensor Data</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+      refreshDataList();
+    });
+
+    function refreshDataList()
+    {
+        $('#dataList').load('datalist.php', function(){
+           setTimeout(refreshDataList, 3000);
+        });
+    }
+</script>
+
 </head>
 <body>
-<?php 
-ini_set('display_errors', 'On');
-include_once "model.php"; 
-include_once "controller.php";
-include_once "view.php";
-
-$model = new Model();
-$controller = new Controller($model);
-$view = new View($controller, $model);
-echo $view->output();
-?>
+<div id="dataList"></div>
 </body>
 </html>
