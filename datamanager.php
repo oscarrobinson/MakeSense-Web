@@ -56,7 +56,7 @@ class DataManager
             $i = 0;
             foreach($row as $element){
                 if ($i==0){
-                    $element=intval(floatval($element)*1000);
+                    $element=floatval($element)*1000;
                 }
                 $output = $output.$element.",";
                 $i+=1;
