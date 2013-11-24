@@ -22,10 +22,6 @@ $(function () {
 
             xAxis: {
                 type: 'datetime',
-                dateTimeLabelFormats: { // don't display the dummy year
-                    month: '%e. %b',
-                    year: '%b'
-                }
             },
             yAxis: {
                 title: {
@@ -36,7 +32,7 @@ $(function () {
             tooltip: {
                 formatter: function() {
                         return '<b>'+ this.series.name +'</b><br/>'+
-                        Highcharts.dateFormat('%e. %b', this.x) +': '+ this.y +' m';
+                        Highcharts.dateFormat('%e. %b %Y,  %H:%M:%S', this.x) +': '+ this.y;
                 }
             },
             
