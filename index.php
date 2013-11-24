@@ -67,7 +67,7 @@ margin-right: auto;
 </head>
 <body>
 <div id="title"><h1>Light Sensor Data</h1></div>
-<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="graph" style="width: 800px; height: 400px; margin: 0 auto"></div>
 <div id="dataList"></div>
 </body>
 

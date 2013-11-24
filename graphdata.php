@@ -14,6 +14,12 @@ $(function () {
             title: {
                 text: 'Light Sensor Reading'
             },
+            plotOptions: {
+    			series: {
+        			animation: false
+    			}
+			},
+
             xAxis: {
                 type: 'datetime',
                 dateTimeLabelFormats: { // don't display the dummy year
