@@ -2,26 +2,22 @@
 ini_set('display_errors', 'On');
 include_once "datamanager.php";
 $dataManager = new DataManager();
-$stringsArray=$dataManager->getRandomStrings();
-$output = "<table>";
-$count = 0;
-$columns = 6;
-foreach($stringsArray as $string)
+$dataArray=$dataManager->getDataList();
+$output = "<table><tr><th>Time</th><th>Light Intensity</th></tr>";
+
+foreach($dataArray as $row)
 {
-    if ($count%$columns==0)
-    {
-        $output = $output."<tr>";
-    }   
-    $output = $output."<td>".$string."</td>";
-    $count = $count + 1;
-    if ($count%$columns==0)
-    {
-        $output = $output."</tr>";
-    }   
-}
-if ($count%$columns!=0)
-{
-        $output = $output."</tr>";
+    $output = $output."<tr>";
+    $i=0;
+    foreach($row as $element){
+    	if($i==0){
+    		$element=intval(floatval($element)*1000);
+    	}
+        $output = $output."<td>".(string)$element."</td>";
+        $i+=1;
+    }
+    $output = $output."</tr>";
+
 }
 $output = $output."</table>";  
 echo $output;

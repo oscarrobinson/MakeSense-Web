@@ -31,18 +31,43 @@ class DataManager
 
     }
 
-    public function getRandomStrings()
+    public function getDataList()
     {
 
-        $sql_select = "SELECT * FROM randomdata";
+        $sql_select = "SELECT * FROM lightsensor";
         $stmt = $this->conn->query($sql_select);
-        $strings = $stmt->fetchAll();
+        $data = $stmt->fetchAll();
         $returnArray = array(); 
-        foreach($strings as $string)
+        foreach($data as $row)
         {
-            array_push($returnArray,$string['randomString']);
+            $dataRow = array();
+            $dataRow[]=($row['timestamp']);
+            $dataRow[]=$row['data'];
+            array_push($returnArray, $dataRow);
         }
         return $returnArray;
     }
+
+    public function graphStringFromDataArray($dataString){
+        $output = "[";
+        foreach($dataString as $row)
+        {
+            $output = $output."[";
+            $i = 0;
+            foreach($row as $element){
+                if ($i==0){
+                    $element=intval(floatval($element)*1000);
+                }
+                $output = $output.$element.",";
+                $i+=1;
+            }
+            $output = rtrim($output, ",");
+            $output = $output."],";
+        }
+        $output = rtrim($output, ",");
+        $output = $output."]";
+        return $output;
+    }
+
 }
 ?>

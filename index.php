@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>Sensor Data</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Chivo:400,900' rel='stylesheet' type='text/css'>
 <style>
 h1{
@@ -44,6 +45,7 @@ margin-right: auto;
     $(document).ready(function()
     {
       refreshDataList();
+      loadGraph();
     });
 
     function refreshDataList()
@@ -52,11 +54,21 @@ margin-right: auto;
            setTimeout(refreshDataList, 3000);
         });
     }
+
+    function loadGraph()
+    {
+        console.log("loaded graph");
+        $('#graph').load('graphdata.php', function(){
+           setTimeout(loadGraph, 3000);
+        });
+    }
 </script>
 
 </head>
 <body>
-<div id="title"><h1>Random Strings</h1></div>
+<div id="title"><h1>Light Sensor Data</h1></div>
+<div id="graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <div id="dataList"></div>
 </body>
+
 </html>
