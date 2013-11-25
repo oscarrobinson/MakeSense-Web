@@ -6,22 +6,30 @@ include_once "datamanager.php";
 $dataManager = new DataManager();
 $dataArray=$dataManager->getDataList();
 $graphScript = "<script>
+var graphColour = '#6E6E6E';
+
 $(function () {
         $('#graph').highcharts({
             chart: {
             	zoomType: 'x',
-                type: 'spline'
+                type: 'spline',
+                backgroundColor: Highcharts.Color(graphColour).setOpacity(0).get('rgba')
+                    
             },
             title: {
-                text: 'Light Sensor Reading'
+                text: 'Light Sensor Reading',
+                style: {
+                        color: 'black',
+                        fontWeight: 'bold'
+                    }
             },
             plotOptions: {
                 area: {
                     fillColor: {
                         linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
                         stops: [
-                            [0, Highcharts.getOptions().colors[0]],
-                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                            [0, graphColour],
+                            [1, Highcharts.Color(graphColour).setOpacity(0).get('rgba')]
                         ]
                     },
                     lineWidth: 1,
@@ -37,7 +45,8 @@ $(function () {
                     threshold: null
                 },
                 series: {
-                	animation: false
+                	animation: false,
+                    color: graphColour
                 }
             },
 
@@ -46,7 +55,11 @@ $(function () {
             },
             yAxis: {
                 title: {
-                    text: 'Light Intensity'
+                    text: 'Light Intensity',
+                    style: {
+                        color: 'black',
+                        fontWeight: 'bold'
+                    }
                 },
                 min: 0
             },

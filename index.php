@@ -57,7 +57,7 @@ table{
     float:left;
 }
 #autoUpdate{
-    width:200px;
+    width:100px;
     float:right;
     font-size:10pt;
 }
@@ -79,7 +79,7 @@ table{
 </body>
 <script type="text/javascript">
     var autoUpdate = false;
-    var autoUpdateJustOff = false;
+    var autoUpdateJustOff = false; //used to prevent autoupdate occuring one last time after it is turned off
     $(document).ready(function()
     {
       refreshDataList();
