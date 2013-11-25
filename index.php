@@ -35,17 +35,68 @@ body{
 	margin-left: auto;
     margin-right: auto;
 }
-table
-{ 
-margin-left: auto;
-margin-right: auto;
+table{ 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#graph{
+    width: 800px; 
+    height: 400px; 
+    margin: 0 auto;
+}
+#controls{
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:50px;
+}
+
+#refreshButton{
+    width:100px;
+    float:left;
+}
+#autoUpdate{
+    width:200px;
+    float:right;
+    font-size:10pt;
 }
 </style>
+
+</head>
+<body>
+<div id="title"><h1>Light Sensor Data</h1></div>
+<div id="graph"></div>
+<div id="controls">
+<div id="autoUpdate">
+    <form>
+    <input type="checkbox" id="isAutoUpdateOn">Auto Update</input>
+    </form>
+</div>
+<div id="refreshButton"><button type="button">Refresh Graph</button></div>
+</div>
+<div id="dataList"></div>
+</body>
 <script type="text/javascript">
+    var autoUpdate = false;
     $(document).ready(function()
     {
       refreshDataList();
       loadGraph();
+    });
+
+    $("#refreshButton").click(function() {
+        loadGraph();
+    });
+
+    $('#isAutoUpdateOn').click(function() {
+        if($("#isAutoUpdateOn").is(':checked')){
+           autoUpdate = true;  // checked
+           loadGraph();
+        }
+        else{
+            autoUpdate = false;  // unchecked
+        }
     });
 
     function refreshDataList()
@@ -59,16 +110,11 @@ margin-right: auto;
     {
         console.log("loaded graph");
         $('#graph').load('graphdata.php', function(){
-           setTimeout(loadGraph, 3000);
+            if (autoUpdate==true){
+                setTimeout(loadGraph, 3000);
+            }
         });
+
     }
 </script>
-
-</head>
-<body>
-<div id="title"><h1>Light Sensor Data</h1></div>
-<div id="graph" style="width: 800px; height: 400px; margin: 0 auto"></div>
-<div id="dataList"></div>
-</body>
-
 </html>
