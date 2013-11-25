@@ -79,6 +79,7 @@ table{
 </body>
 <script type="text/javascript">
     var autoUpdate = false;
+    var autoUpdateJustOff = false;
     $(document).ready(function()
     {
       refreshDataList();
@@ -96,6 +97,7 @@ table{
         }
         else{
             autoUpdate = false;  // unchecked
+            autoUpdateJustOff = true;
         }
     });
 
@@ -108,12 +110,17 @@ table{
 
     function loadGraph()
     {
-        console.log("loaded graph");
-        $('#graph').load('graphdata.php', function(){
-            if (autoUpdate==true){
-                setTimeout(loadGraph, 3000);
-            }
-        });
+        if (!autoUpdateJustOff){
+            console.log("loaded graph");
+            $('#graph').load('graphdata.php', function(){
+                if (autoUpdate==true){
+                    setTimeout(loadGraph, 3000);
+                }
+            });
+        }
+        else{
+            autoUpdateJustOff = false;
+        }
 
     }
 </script>
