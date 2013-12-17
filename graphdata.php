@@ -1,10 +1,53 @@
 <?php
 ini_set('display_errors', 'On');
 
-
 include_once "datamanager.php";
+
+function graphStringFromDataArray($dataString){
+    $output = "[";
+    foreach($dataString as $row)
+    {
+        $output = $output."[";
+        $i = 0;
+        foreach($row as $element){
+            if ($i==0){
+                $element=floatval($element)*1000;
+            }
+            $output = $output.$element.",";
+            $i+=1;
+        }
+        $output = rtrim($output, ",");
+        $output = $output."],";
+    }
+    $output = rtrim($output, ",");
+    $output = $output."]";
+    return $output;
+}
+
+function prepareDataForGraph($sensorsData, $idList){
+    $result = "";
+    $counter = 0;
+    foreach($sensorsData as $sensorData){
+        $result = $result."{
+                        name: 'sensor ".$idList[$counter]."',
+                        type: 'area',
+                        data: ".graphStringFromDataArray($sensorData)."
+                    },";
+        $counter+=1;
+    }
+    //trim trailing ,
+    rtrim($result, ",");
+    return $result;
+}
+
+
 $dataManager = new DataManager();
-$dataArray=$dataManager->getDataList();
+$ids = $dataManager->getIdList();
+$sensorsData = array();
+foreach($ids as $id){
+    $sensorData = $dataManager->getDataList($id);
+    array_push($sensorsData, $sensorData);
+}
 $graphScript = "<script>
 var graphColour = '#6E6E6E';
 
@@ -25,13 +68,6 @@ $(function () {
             },
             plotOptions: {
                 area: {
-                    fillColor: {
-                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
-                        stops: [
-                            [0, graphColour],
-                            [1, Highcharts.Color(graphColour).setOpacity(0).get('rgba')]
-                        ]
-                    },
                     lineWidth: 1,
                     marker: {
                         enabled: false
@@ -46,7 +82,7 @@ $(function () {
                 },
                 series: {
                 	animation: false,
-                    color: graphColour
+                    fillOpacity: 0.1
                 }
             },
 
@@ -70,11 +106,7 @@ $(function () {
                 }
             },
             
-            series: [{
-                name: 'Light Sensor Data',
-                type: 'area',
-                data: ".$dataManager->graphStringFromDataArray($dataArray)."
-          }]
+            series: [".prepareDataForGraph($sensorsData, $ids)."]
         });
     });
     

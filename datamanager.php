@@ -7,6 +7,7 @@ class DataManager
     private $passwd;
     private $db;
     private $conn;
+
  
     public function __construct(){
         $this->host="eu-cdbr-azure-west-b.cloudapp.net";
@@ -31,10 +32,22 @@ class DataManager
 
     }
 
-    public function getDataList()
+    public function getIdList()
+    {
+        $sql_select = "SELECT DISTINCT id FROM multiple_sensors";
+        $stmt = $this->conn->query($sql_select);
+        $data = $stmt->fetchAll();
+        $result = array();
+        foreach($data as $id){
+            $result[] = $id[0];
+        }
+        return $result;
+    }
+
+    public function getDataList($id)
     {
 
-        $sql_select = "SELECT * FROM lightsensor";
+        $sql_select = "SELECT * FROM multiple_sensors WHERE id='".$id."'";
         $stmt = $this->conn->query($sql_select);
         $data = $stmt->fetchAll();
         $returnArray = array(); 
@@ -46,27 +59,6 @@ class DataManager
             array_push($returnArray, $dataRow);
         }
         return $returnArray;
-    }
-
-    public function graphStringFromDataArray($dataString){
-        $output = "[";
-        foreach($dataString as $row)
-        {
-            $output = $output."[";
-            $i = 0;
-            foreach($row as $element){
-                if ($i==0){
-                    $element=floatval($element)*1000;
-                }
-                $output = $output.$element.",";
-                $i+=1;
-            }
-            $output = rtrim($output, ",");
-            $output = $output."],";
-        }
-        $output = rtrim($output, ",");
-        $output = $output."]";
-        return $output;
     }
 
 }

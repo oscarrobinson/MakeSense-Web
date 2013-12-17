@@ -82,7 +82,7 @@ table{
     var autoUpdateJustOff = false; //used to prevent autoupdate occuring one last time after it is turned off
     $(document).ready(function()
     {
-      refreshDataList();
+      //refreshDataList();
       loadGraph();
     });
 
@@ -101,12 +101,12 @@ table{
         }
     });
 
-    function refreshDataList()
+    /*function refreshDataList()
     {
         $('#dataList').load('datalist.php', function(){
            setTimeout(refreshDataList, 3000);
         });
-    }
+    }*/
 
     function loadGraph()
     {
