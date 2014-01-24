@@ -3,6 +3,7 @@ ini_set('display_errors', 'On');
 
 include_once "datamanager.php";
 
+//gets a string of the data from a data array string so that it is ready to be used by Highcharts
 function graphStringFromDataArray($dataString){
     $output = "[";
     foreach($dataString as $row)
@@ -24,6 +25,7 @@ function graphStringFromDataArray($dataString){
     return $output;
 }
 
+//prepare the data code from each sensor for a graph, puts in correct sensor id and uses graphStringFromDataArray() to prepare the data itself
 function prepareDataForGraph($sensorsData, $idList){
     $result = "";
     $counter = 0;
@@ -40,7 +42,7 @@ function prepareDataForGraph($sensorsData, $idList){
     return $result;
 }
 
-
+//get a new data manager to fetch the graph data
 $dataManager = new DataManager();
 $ids = $dataManager->getIdList();
 $sensorsData = array();
@@ -48,6 +50,7 @@ foreach($ids as $id){
     $sensorData = $dataManager->getDataList($id);
     array_push($sensorsData, $sensorData);
 }
+//prepares the JS for the graph
 $graphScript = "<script>
 var graphColour = '#6E6E6E';
 
@@ -113,5 +116,6 @@ $(function () {
 
 
 </script>";
+//echo the graph's code onto the page the graph is embedded in
 echo $graphScript;
 ?>

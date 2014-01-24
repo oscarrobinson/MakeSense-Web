@@ -32,6 +32,7 @@ class DataManager
 
     }
 
+    //get's the list of sensor ids in the table
     public function getIdList()
     {
         $sql_select = "SELECT DISTINCT id FROM multiple_sensors";
@@ -44,6 +45,7 @@ class DataManager
         return $result;
     }
 
+    //gets an array of all the data for a sensor with a given id
     public function getDataList($id)
     {
 
