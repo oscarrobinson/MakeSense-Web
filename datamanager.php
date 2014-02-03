@@ -7,7 +7,6 @@ class DataManager
     private $passwd;
     private $db;
     private $conn;
-
  
     public function __construct(){
         $this->host="eu-cdbr-azure-west-b.cloudapp.net";
@@ -62,6 +61,5 @@ class DataManager
         }
         return $returnArray;
     }
-
 }
 ?>

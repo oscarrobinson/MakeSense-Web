@@ -19,5 +19,6 @@ foreach($dataArray as $row)
 }
 $output = $output."</table>"; 
 //show the table 
+
 echo $output;
 ?>
