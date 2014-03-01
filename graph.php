@@ -13,17 +13,30 @@ if (!($loggedInUser->checkPermission(array(2)))){
 echo "
 <body>
 <div id='wrap'>
+	<div id='networkadd1'>
+		<div id='networkadd'>
+			<p>Add a network! Give it a name and type in your unique identifier number to link to it</p>
+			<form action='#'>
+				Network Name: <input type='text' name='networkname'><br>
+				Unique Identifier: <input type='text' name='uniqueid'><br>
+			<input type='submit' value='Submit'>
+		</div>
+	</div>
+	<hr>
+	
 	<div id='content'>
 		<h2>$loggedInUser->displayname's Sensor Network</h2>
 		<br>
-	</div>
+	</div>";
+	if (!($loggedInUser->checkPermission(array(2)))){
+	echo "
 	<div id='main'>
 		<div id='dataList'>
 			<div id='graph'></div>
 				<div id='controls'>
 					<div id='autoUpdate'>
 						<form>
-							<input type='checkbox' id='isAutoUpdateOn'>Auto Update</input>
+							<input type='checkbox' id='isAutoUpdateOn''>Auto Update</input>
 						</form>
 					</div>
 					<div id='refreshButton'><button type='button'>Refresh Graph</button>
@@ -32,7 +45,15 @@ echo "
 				<div id='dataList'>
 				</div>
 			</div>
-		</div>
+		</div>";
+		}
+
+		/*<div>
+			<a href='#' class='networkbutton'>Continue</a>
+		</div>*/
+		
+		echo"
+		</form>
 	</div>
 </div>";
 require_once("footer.php");

@@ -113,7 +113,11 @@ class loggedInUser {
 	public function userLogOut()
 	{
 		destroySession("userCakeUser");
-	}	
+	}
+
+	//UserNetworks
+
+	
 }
 
 ?>
