@@ -1,0 +1,41 @@
+<style>
+#dataList{
+	width: 900px;
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+#title{
+	width: 500px;
+	margin-left: auto;
+    margin-right: auto;
+}
+table{ 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#graph{
+    width: 800px; 
+    height: 400px; 
+    margin: 0 auto;
+}
+#controls{
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-bottom:50px;
+}
+
+#refreshButton{
+	padding-top:100px;
+    width:100px;
+    float:left;
+}
+#autoUpdate{
+	padding-top:100px;
+    width:100px;
+    float:right;
+    font-size:10pt;
+}
+</style>

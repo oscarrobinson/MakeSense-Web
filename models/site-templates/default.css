@@ -1,0 +1,126 @@
+html, body {
+	margin: 0px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:0.95em;
+	color:#4d4948;
+	font-family: 'Arial', sans-serif;
+	background: -webkit-linear-gradient(white, #D9D9D9); /* For Safari */
+    background: -o-linear-gradient(white, #D9D9D9); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, #D9D9D9); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #D9D9D9); /* Standard syntax */
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+h1 {
+	margin: 0;
+	text-align: center;
+	font-size: 150%;
+	padding: 0px;
+	font-family: 'Chivo', sans-serif; 
+	text-shadow: 1px 1px 1px #BFBFBF;   
+}
+
+
+h2 {
+	margin: 0;
+	text-align: center;
+	font-size: 120%;
+	padding: 0px;
+}
+
+h3 {
+	margin: 0;
+	font-size: 105%;
+	padding: 0px;
+}
+
+a {
+	color:#4d4948;
+}
+
+
+
+#content {
+	margin: 0 auto 0 auto;
+	width: 95%;
+}
+
+#content #left-nav {
+	width:15%;
+	float:left;
+	font-size:95%;
+}
+
+#content #left-nav ul {
+	padding:0 0 50px 0;
+	margin:0;
+}
+
+#content #left-nav ul li {
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+
+#content #left-nav ul li a {
+	text-decoration:none;
+}
+
+#content #left-nav ul li a:hover {
+	color:#ff0505;
+	text-decoration:underline;
+}
+
+#content #main {
+	float:left;
+	width:85%;
+	font-size:90%;
+}
+
+#content #main #regbox {
+	padding: 0 0 0 0;
+}
+
+#content #main #regbox label {
+	width:100px;
+	float:left;
+}
+
+table.admin td {
+	vertical-align: top;	
+}
+
+#error {
+	display:block;
+	margin:5px;
+	color:#4d4948;
+	background-color:#fffebe;
+	border: 1px solid #cbcbcb;
+	font-size:90%;
+}
+
+#success {
+	margin:5px;
+	color:#4d4948;
+	background-color:#bce9b5;
+	border: 1px solid #7ace6c;
+	font-size:90%;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+body {
+	margin-top:60px;
+}
+

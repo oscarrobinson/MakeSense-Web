@@ -63,7 +63,7 @@ $(function () {
                     
             },
             title: {
-                text: 'Light Sensor Reading',
+                text: '',
                 style: {
                         color: 'black',
                         fontWeight: 'bold'

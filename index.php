@@ -1,127 +1,69 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Sensor Data</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Chivo:400,900' rel='stylesheet' type='text/css'>
-<style>
-h1{
-	font-family: 'Chivo', sans-serif; text-shadow: 1px 1px 1px #BFBFBF; text-align: center;  
-}
-html {
 
-    height: 100%;
-}
-body{
-	font-family: 'Arial', sans-serif;
-	background: -webkit-linear-gradient(white, #D9D9D9); /* For Safari */
-    background: -o-linear-gradient(white, #D9D9D9); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, #D9D9D9); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(white, #D9D9D9); /* Standard syntax */
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-#dataList{
-	width: 900px;
-	margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-#title{
-	width: 500px;
-	margin-left: auto;
-    margin-right: auto;
-}
-table{ 
-    margin-left: auto;
-    margin-right: auto;
-}
+<?php
+/*
+UserCake Version: 2.0.2
+http://usercake.com
+*/
 
-#graph{
-    width: 800px; 
-    height: 400px; 
-    margin: 0 auto;
-}
-#controls{
-    width:400px;
-    margin-left:auto;
-    margin-right:auto;
-    padding-bottom:50px;
-}
+require_once("models/config.php");
+if (!securePage($_SERVER['PHP_SELF'])){die();}
+require_once("models/header.php");
+require_once("navigation.php");
 
-#refreshButton{
-    width:100px;
-    float:left;
-}
-#autoUpdate{
-    width:100px;
-    float:right;
-    font-size:10pt;
-}
-</style>
-
-</head>
+echo "
 <body>
-<div id="title"><h1>Light Sensor Data</h1></div>
-<div id="graph"></div>
-<div id="controls">
-<div id="autoUpdate">
-    <form>
-    <input type="checkbox" id="isAutoUpdateOn">Auto Update</input>
-    </form>
-</div>
-<div id="refreshButton"><button type="button">Refresh Graph</button></div>
-</div>
-<div id="dataList"></div>
+    
+<div id='wrap'>
+	<div id='myCarousel' class='carousel slide'>
+      <!-- Indicators -->
+      <ol class='carousel-indicators'>
+        <li data-target='#myCarousel' data-slide-to='0' class='active'></li>
+        <li data-target='#myCarousel' data-slide-to='1'></li>
+        <li data-target='#myCarousel' data-slide-to='2'></li>
+      </ol>
+      <div class='carousel-inner'>
+        <div class='item active'>
+          <img src='img/network.jpg' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:First slide' alt='First slide'>
+          <div class='container'>
+            <div class='carousel-caption'>
+							<h1>Such Wireless.</h1>
+							<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>";
+							if(!isUserLoggedIn()){
+							echo"
+							<p><a class='btn btn-large btn-primary' href='login.php'>Sign up today</a></p>";
+							}
+							echo"
+						</div>
+          </div>
+        </div>
+        <div class='item'>
+          <img src='img/lizard.jpg' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:Second slide' alt='Second slide'>
+          <div class='container'>
+            <div class='carousel-caption'>
+              <h1>Very Sensors.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class='btn btn-large btn-primary' href='#'>Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class='item'>
+          <img src='img/pattern.jpg' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:Third slide' alt='Third slide'>
+          <div class='container'>
+            <div class='carousel-caption'>
+              <h1>Wow.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a class='btn btn-large btn-primary' href='#'>Browse gallery</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class='left carousel-control' href='#myCarousel' data-slide='prev'><span class='glyphicon glyphicon-chevron-left'></span></a>
+      <a class='right carousel-control' href='#myCarousel' data-slide='next'><span class='glyphicon glyphicon-chevron-right'></span></a>
+	</div><!-- /.carousel -->
+</div>";
+require_once("footer.php");
+echo"
 </body>
-<script type="text/javascript">
-    var autoUpdate = false;
-    var autoUpdateJustOff = false; //used to prevent autoupdate occuring one last time after it is turned off
-    $(document).ready(function()
-    {
-      //refreshDataList();
-      loadGraph();
-    });
+</html>";
+?>
 
-    $("#refreshButton").click(function() {
-        loadGraph();
-    });
-
-    $('#isAutoUpdateOn').click(function() {
-        if($("#isAutoUpdateOn").is(':checked')){
-           autoUpdate = true;  // checked
-           loadGraph();
-        }
-        else{
-            autoUpdate = false;  // unchecked
-            autoUpdateJustOff = true;
-        }
-    });
-
-    /*function refreshDataList()
-    {
-        $('#dataList').load('datalist.php', function(){
-           setTimeout(refreshDataList, 3000);
-        });
-    }*/
-
-    function loadGraph()
-    {
-        if (!autoUpdateJustOff){
-            console.log("loaded graph");
-            $('#graph').load('graphdata.php', function(){
-                if (autoUpdate==true){
-                    setTimeout(loadGraph, 3000);
-                }
-            });
-        }
-        else{
-            autoUpdateJustOff = false;
-        }
-
-    }
-</script>
-</html>
