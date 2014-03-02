@@ -10,8 +10,5 @@ $cfg['Servers'][$i]['host'] = 'eu-cdbr-azure-north-b.cloudapp.net';  // Replace 
 $cfg['Servers'][$i]['connect_type'] = 'tcp';  
 $cfg['Servers'][$i]['compress'] = false;  
 $cfg['Servers'][$i]['extension'] = 'mysqli';
-$cfg['Servers'][$i]['auth_type'] = 'config';  
-$cfg['Servers'][$i]['user'] = 'root';
-$cfg['Servers'][$i]['password'] = '';
 $cfg['Servers'][$i]['AllowNoPassword'] = true; 
 ?>  
