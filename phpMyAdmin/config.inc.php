@@ -11,6 +11,6 @@ $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;  
 $cfg['Servers'][$i]['extension'] = 'mysqli';
 $cfg['Servers'][$i]['AllowNoPassword'] = true; 
-$cfg['Servers'][$i]['User'] = 'b56834bde0c85e'; 
-$cfg['Servers'][$i]['Password'] = '87a230d7'; 
+$cfg['Servers'][$i]['user'] = 'b56834bde0c85e'; 
+$cfg['Servers'][$i]['password'] = '87a230d7'; 
 ?>
