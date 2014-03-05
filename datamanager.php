@@ -7,13 +7,13 @@ class DataManager
     private $passwd;
     private $db;
     private $conn;
-
+    private $dataTable = "sensor_data";
  
     public function __construct(){
-        $this->host="eu-cdbr-azure-west-b.cloudapp.net";
-        $this->user="bd4f86da652db2";
-        $this->passwd="95905cbf";
-        $this->db="methtesA9fvknZn4";
+        $this->host="eu-cdbr-azure-north-b.cloudapp.net";
+        $this->user="b56834bde0c85e";
+        $this->passwd="87a230d7";
+        $this->db="makesensemain";
         $this->connectToDatabase();
     }
 
@@ -35,7 +35,7 @@ class DataManager
     //get's the list of sensor ids in the table
     public function getIdList()
     {
-        $sql_select = "SELECT DISTINCT id FROM multiple_sensors";
+        $sql_select = "SELECT DISTINCT id FROM ".$this->dataTable;
         $stmt = $this->conn->query($sql_select);
         $data = $stmt->fetchAll();
         $result = array();
@@ -49,7 +49,7 @@ class DataManager
     public function getDataList($id)
     {
 
-        $sql_select = "SELECT * FROM multiple_sensors WHERE id='".$id."'";
+        $sql_select = "SELECT * FROM ".$this->dataTable." WHERE id='".$id."'";
         $stmt = $this->conn->query($sql_select);
         $data = $stmt->fetchAll();
         $returnArray = array(); 
@@ -65,7 +65,7 @@ class DataManager
 
     //gets array of all sensor node ids for a given network id
     public function getSensorsForNetwork($networkId){
-       $sql_select = "SELECT id FROM multiple_sensors WHERE networkid='".$networkId."'";
+       $sql_select = "SELECT id FROM ".$this->dataTable." WHERE networkid='".$networkId."'";
         $stmt = $this->conn->query($sql_select);
         $data = $stmt->fetchAll();
         $returnArray = array(); 
