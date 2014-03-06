@@ -4028,7 +4028,10 @@ textarea.input-group-sm > .input-group-btn > .btn {
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+  max-height: 50px;
 }
+
+
 
 .navbar:before,
 .navbar:after {
@@ -4193,9 +4196,10 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
+  padding-top:11px;
+  padding-left:10px;
 }
 
 .navbar-brand:hover,
