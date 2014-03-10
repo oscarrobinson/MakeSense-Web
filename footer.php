@@ -1,9 +1,11 @@
 <?php
 echo"
 <div id='footer'>
-      <div class='container'>
-        <p>© MakeSense 2014</p>
+	<div id='footertext'>
+		<div class='container'>
+			<p text-align='center'>© MakeSense 2014</p>
       </div>
-    </div>
+	</div>	
+</div>
 "
 ?>

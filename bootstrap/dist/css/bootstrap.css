@@ -6936,3 +6936,11 @@ td.visible-print {
 	margin-bottom:50px;
 	margin-left:5%;
 }
+
+#footertext{
+	margin-left:30px;
+	float:center;
+	position:absolute;
+	vertical-align: middle; 
+	text-align: center; 
+}

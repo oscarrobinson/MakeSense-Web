@@ -47,7 +47,7 @@ echo "
 				</div>
 			</div>
 			<div class='item'>
-				<img src='img/Models/gateway1.png' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:Third slide' alt='Third slide'>
+				<img src='img/hank7.jpg' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:Third slide' alt='Third slide'>
 				<div class='container'>
 					<div class='carousel-caption'>
 						<h1>Wow.</h1>
@@ -58,7 +58,7 @@ echo "
 			</div>
 		</div>
 		<a class='left carousel-control' href='#myCarousel' data-slide='prev'><span class='glyphicon glyphicon-chevron-left'></span></a>
-		<a class='right carousel-control' href='#myCarousel' data-slide='next'><span class='glyphicon glyphicon-chevron-right'></span></a>
+      <a class='right carousel-control' href='#myCarousel' data-slide='next'><span class='glyphicon glyphicon-chevron-right'></span></a>
 	</div><!-- /.carousel -->
 </div>";
 require_once("footer.php");
