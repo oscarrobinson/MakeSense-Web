@@ -27,7 +27,7 @@ echo "
 			}
 			
 			echo"
-			<li><a href='#'>Shop</a></li>
+			<li><a href='blog.php'>Blog</a></li>
             <li><a href='about.php'>About</a></li>
             <li class='dropdown'>
               <a href='#' class='dropdown-toggle' data-toggle='dropdown'>Settings <b class='caret'></b></a>

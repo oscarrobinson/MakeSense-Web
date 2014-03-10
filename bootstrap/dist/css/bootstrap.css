@@ -6922,3 +6922,17 @@ td.visible-print {
 	width:100%;	
 	position:center;
 }
+
+#articleBody{
+	height:auto;
+	width:auto;
+	overflow:hidden
+}
+
+#blogiframe{
+	height:500px;
+	width:90%;
+	overflow:hidden;
+	margin-bottom:50px;
+	margin-left:5%;
+}
