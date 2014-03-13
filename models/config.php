@@ -17,7 +17,6 @@ while ($stmt->fetch()){
 $stmt->close();
 
 //Set Settings
-$settings['website-url']['value'] = "index.php"; //set index.php as root of site
 $emailActivation = $settings['activation']['value'];
 $mail_templates_dir = "models/mail-templates/";
 $websiteName = $settings['website_name']['value'];
