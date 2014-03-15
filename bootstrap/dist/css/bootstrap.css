@@ -749,7 +749,7 @@ pre code {
 
 .container {
   width: auto;
-  max-width: 680px;
+  max-width: 700px;
   padding: 0 15px;
 }
 
@@ -4932,7 +4932,7 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  margin-top: -50px;
+  margin-top: -70px;
   margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
@@ -4944,6 +4944,7 @@ a.list-group-item.active > .badge,
 .jumbotron h1 {
   line-height: 1;
   color: inherit;
+  margin-bottom: 50px;
 }
 
 .jumbotron p {
@@ -6943,4 +6944,20 @@ td.visible-print {
 	position:absolute;
 	vertical-align: middle; 
 	text-align: center; 
+}
+
+#makesensevideo{
+	text-align: center;
+}
+
+.vidbg{
+	background-color:#yellow;
+}
+
+#sensorinfo{
+	margin-left:30px;
+}
+
+#aboutbottominfo{
+	margin-bottom:40px;
 }
