@@ -15,7 +15,9 @@ echo "
     
 <div id='wrap'>
 	<div id='content'>
+	<div class='container'>
 		<div id=\"title\"><h1>Contact</h1></div>
+		</div>
 
 	</div>
 
@@ -24,7 +26,14 @@ echo "
 	</div>
 	
 	<br><br>
+	
+	<div class='container'>
+		<h2>The MakeSense team:</h2>
+	</div>
+	<br>
+	
 	<div class='container marketing'>
+		<div id='contactinfo'>
 		<!-- Three columns of text below the carousel -->
 		<div class='row'>
 			<div class='col-lg-4'>
@@ -46,6 +55,7 @@ echo "
 				<!--<p><a class='btn btn-default' href='#'>View details &raquo;</a></p>-->
 			</div><!-- /.col-lg-4 -->
 		</div><!-- /.row -->
+	</div>
 	</div>
 </div>";
 require_once("footer.php");
