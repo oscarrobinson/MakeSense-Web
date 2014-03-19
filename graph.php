@@ -8,6 +8,8 @@ require_once("models/config.php");
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once("models/header.php");
 require_once("navigation.php");
+require_once("datamanager.php");
+$datamanager = new DataManager();
 //Links for permission level 2 (default admin)
 if (!($loggedInUser->checkPermission(array(2)))){
 echo "
@@ -23,7 +25,15 @@ echo "
 		</div>
 	</div>
 	<hr>
+
+	<div id='networkselect'>
+		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id))."
+	</div>
+
+	<div id='sensorselect'>
 	
+	</div>	
+
 	<div id='content'>
 		<h2>$loggedInUser->displayname's Sensor Network</h2>
 		<br>
@@ -87,12 +97,6 @@ echo"
         }
     });
 
-    /*function refreshDataList()
-    {
-        $('#dataList').load('datalist.php', function(){
-           setTimeout(refreshDataList, 3000);
-        });
-    }*/
 
     function loadGraph()
     {

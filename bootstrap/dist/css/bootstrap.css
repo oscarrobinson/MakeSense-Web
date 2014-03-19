@@ -6924,6 +6924,15 @@ td.visible-print {
 	position:center;
 }
 
+/* graph.php network selection shit */
+
+#networkselect{
+  width:200px;
+  margin-left:50px;
+}
+
+/* ABOUT PAGE */
+
 #articleBody{
 	height:auto;
 	width:auto;

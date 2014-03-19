@@ -8,6 +8,9 @@ class DataManager
     private $db;
     private $conn;
     private $dataTable = "sensor_data";
+    private $sensorTable = "sensors";
+    private $rawDataTable = "data";
+    private $networksTable = "networks";
  
     public function __construct(){
         $this->host="eu-cdbr-azure-north-b.cloudapp.net";
@@ -76,6 +79,30 @@ class DataManager
             }
         }
         return $returnArray;
+    }
+
+    public function getNetworksForAccount($accountId){
+        $sql_select = "SELECT network_id FROM networks WHERE id='".$accountId."'";
+        $stmt = $this->conn->query($sql_select);
+        $data = $stmt->fetchAll();
+        $returnArray = array();
+        foreach($data as $row)
+        {
+            array_push($returnArray, $row[0]);
+        }
+        return $returnArray;
+
+    }
+
+    public function getSelector($selectArray){
+        $html = "<select class=\"form-control\">";
+        foreach($selectArray as $item){
+            $html = $html."<option value=\"".$item."\">".$item."</option>";
+        }
+        $html = $html."</select>";
+        return $html;
+
+
     }
 }
 ?>
