@@ -29,11 +29,12 @@ echo "
 	<div id='networkselect'>
 		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE)."
 	</div>
-
 	<div id='sensorselect'>
+		Select Sensor:
+		<div id='sensorselectlist'>
 
+		</div>
 	</div>
-
 
 	<div id='content'>
 		<h2>$loggedInUser->displayname's Sensor Network</h2>
@@ -126,7 +127,7 @@ echo"
             datatype: 'string',
             data: { network: str },
             success:function(data){
-                $('#sensorselect').html(data);
+                $('#sensorselectlist').html(data);
             }
         });
   	}).change();
