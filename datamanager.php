@@ -52,7 +52,7 @@ class DataManager
     public function getDataList($id)
     {
 
-        $sql_select = "SELECT * FROM ".$this->dataTable." WHERE id='".$id."'";
+        $sql_select = "SELECT reading, timestamp FROM ".$this->rawDataTable." WHERE sensor_id='".$id."'";
         $stmt = $this->conn->query($sql_select);
         $data = $stmt->fetchAll();
         $returnArray = array(); 
@@ -60,7 +60,7 @@ class DataManager
         {
             $dataRow = array();
             $dataRow[]=($row['timestamp']);
-            $dataRow[]=$row['data'];
+            $dataRow[]=($row['reading']);
             array_push($returnArray, $dataRow);
         }
         return $returnArray;
@@ -95,14 +95,14 @@ class DataManager
     }
 
 
-    public function getSelector($selectArray, $isMultiple){
+    public function getSelector($selectArray, $isMultiple, $id){
         $html = "";
         if(!$isMultiple){
-            $html = "<select class=\"form-control\">";
+            $html = "<select id=\"$id\" class=\"form-control\">";
         }
         else
         {
-            $html = "<select multiple class=\"form-control\">";
+            $html = "<select multiple id=\"$id\" lass=\"form-control\">";
         }
         foreach($selectArray as $item){
             $html = $html."<option value=\"".$item."\">".$item."</option>";

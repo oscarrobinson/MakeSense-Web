@@ -43,8 +43,9 @@ function prepareDataForGraph($sensorsData, $idList){
 }
 
 //get a new data manager to fetch the graph data
+
+$ids = $_POST['sensorArray'];
 $dataManager = new DataManager();
-$ids = $dataManager->getIdList();
 $sensorsData = array();
 foreach($ids as $id){
     $sensorData = $dataManager->getDataList($id);
