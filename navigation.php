@@ -40,7 +40,6 @@ echo "
 
 			echo"
 				<li><a href='http://uclteam10.azurewebsites.net/phpbb3'>Forum </a></li>
-                <li><a href='#'>Partners</a></li>
 				<li><a href='contact.php'>Contact</a></li>
                 <li class='divider'></li>
                 <li class='dropdown-header'>Login Difficulties</li>

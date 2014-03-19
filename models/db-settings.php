@@ -5,13 +5,11 @@ http://usercake.com
 */
 
 //Database Information
-
 /**********For Azure Login**************/
 $db_host = "eu-cdbr-azure-north-b.cloudapp.net"; //Host address (most likely localhost)
 $db_name = "makesensemain"; //Name of Database
 $db_user = "b56834bde0c85e"; //Name of database user
 $db_pass = "87a230d7"; //Password for database user 
-
 
 /**********For Localhost Login**********
 $db_host = "localhost"; //Host address (most likely localhost)
