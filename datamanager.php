@@ -94,8 +94,16 @@ class DataManager
 
     }
 
-    public function getSelector($selectArray){
-        $html = "<select class=\"form-control\">";
+
+    public function getSelector($selectArray, $isMultiple){
+        $html = "";
+        if(!$isMultiple){
+            $html = "<select class=\"form-control\">";
+        }
+        else
+        {
+            $html = "<select multiple class=\"form-control\">";
+        }
         foreach($selectArray as $item){
             $html = $html."<option value=\"".$item."\">".$item."</option>";
         }
@@ -103,6 +111,19 @@ class DataManager
         return $html;
 
 
+    }
+
+
+    public function getSensorsInNetwork($networkId){
+        $sql_select = "SELECT sensor_id FROM sensors WHERE network_id='".$networkId."'";
+        $stmt = $this->conn->query($sql_select);
+        $data = $stmt->fetchAll();
+        $returnArray = array();
+        foreach($data as $row)
+        {
+            array_push($returnArray, $row[0]);
+        }
+        return $returnArray;
     }
 }
 ?>

@@ -6931,6 +6931,12 @@ td.visible-print {
   margin-left:50px;
 }
 
+#sensorselect{
+  width:200px;
+  margin-left:50px;
+  float:left;
+}
+
 /* ABOUT PAGE */
 
 #articleBody{

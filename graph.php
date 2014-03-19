@@ -27,12 +27,13 @@ echo "
 	<hr>
 
 	<div id='networkselect'>
-		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id))."
+		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE)."
 	</div>
 
 	<div id='sensorselect'>
-	
-	</div>	
+
+	</div>
+
 
 	<div id='content'>
 		<h2>$loggedInUser->displayname's Sensor Network</h2>
@@ -113,7 +114,24 @@ echo"
         }
 
     }
+    
+    $( \"select\" ).change(function () {
+    	var str = \"\";
+   		$( \"select option:selected\" ).each(function() {
+    		str += $( this ).text() + \" \";
+    	});
+        $.ajax({
+            url: 'sensorlist.php',
+            type: 'post',
+            datatype: 'string',
+            data: { network: str },
+            success:function(data){
+                $('#sensorselect').html(data);
+            }
+        });
+  	}).change();
 </script>
+
 </div>
 </div>
 </body>
