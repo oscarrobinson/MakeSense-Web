@@ -7,6 +7,6 @@ $networkid = $_POST['network'];
 
 $datamanager = new DataManager();
 
-echo $datamanager->getSelector($datamanager->getSensorsInNetwork($networkid),TRUE);
+echo $datamanager->getSelector($datamanager->getSensorsInNetwork($networkid),TRUE,"sensorList");
 
 ?>

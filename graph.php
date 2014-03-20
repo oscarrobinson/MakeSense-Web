@@ -27,7 +27,7 @@ echo "
 	<hr>
 
 	<div id='networkselect'>
-		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE)."
+		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."
 	</div>
 	<div id='sensorselect'>
 		Select Sensor:
@@ -43,8 +43,7 @@ echo "
 	if (!($loggedInUser->checkPermission(array(2)))){
 	echo "
 	<div id='main'>
-		<div id='dataList'>
-			<div id='graph'></div>
+		<div id='graphs'>
 				<div id='controls'>
 					<div id='autoUpdate'>
 						<form>
@@ -54,7 +53,7 @@ echo "
 					<div id='refreshButton'><button type='button'>Refresh Graph</button>
 					</div>
 				</div>
-				<div id='dataList'>
+				<div id='graph'>
 				</div>
 			</div>
 		</div>";
@@ -78,6 +77,7 @@ echo"
 <script type='text/javascript'>
     var autoUpdate = false;
     var autoUpdateJustOff = false; //used to prevent autoupdate occuring one last time after it is turned off
+    var timeout;
     $(document).ready(function()
     {
       //refreshDataList();
@@ -90,25 +90,39 @@ echo"
 
     $('#isAutoUpdateOn').click(function() {
         if($('#isAutoUpdateOn').is(':checked')){
-           autoUpdate = true;  // checked
            loadGraph();
+           autoUpdate = true;  // checked
+		   timeout = setTimeout(loadGraph,3000);
         }
         else{
             autoUpdate = false;  // unchecked
             autoUpdateJustOff = true;
+            clearTimeout(timeout);
         }
     });
 
 
     function loadGraph()
     {
+        console.log('loadGraph() called');
         if (!autoUpdateJustOff){
-            console.log('loaded graph');
-            $('#graph').load('graphdata.php', function(){
-                if (autoUpdate==true){
-                    setTimeout(loadGraph, 3000);
-                }
-            });
+    		var sensors = [];
+    		$(\"#sensorList option:selected\").each(function(i, selected){ 
+  				sensors[i] = $(selected).text(); 
+			});
+        	$.ajax({
+          	  url: 'graphdata.php',
+          	  type: 'post',
+         	  data: { sensorArray: sensors },
+          	  success:function(data){
+              $('#graph').html(data);
+            }
+        	});
+			if(autoUpdate){
+				//console.log('setting timeout');
+				timeout = setTimeout(loadGraph,3000);
+			}
+			
         }
         else{
             autoUpdateJustOff = false;
@@ -116,9 +130,9 @@ echo"
 
     }
     
-    $( \"select\" ).change(function () {
+    $( \"#networkList\" ).change(function () {
     	var str = \"\";
-   		$( \"select option:selected\" ).each(function() {
+   		$( \"#networkList option:selected\" ).each(function() {
     		str += $( this ).text() + \" \";
     	});
         $.ajax({
@@ -130,6 +144,11 @@ echo"
                 $('#sensorselectlist').html(data);
             }
         });
+  	}).change();
+
+
+	$( '#sensorselectlist' ).change(function () {
+    	loadGraph();
   	}).change();
 </script>
 
