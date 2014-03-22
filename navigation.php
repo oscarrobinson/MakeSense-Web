@@ -30,8 +30,15 @@ echo "
 			<li><a href='blog.php'>Blog</a></li>
             <li><a href='about.php'>About</a></li>
             <li class='dropdown'>
-              <a href='#' class='dropdown-toggle' data-toggle='dropdown'>More <b class='caret'></b></a>
-              <ul class='dropdown-menu'>";
+            <a href='#' class='dropdown-toggle' data-toggle='dropdown'>More <b class='caret'></b></a>
+            <ul class='dropdown-menu'>
+			  
+			<li><a href='http://uclteam10.azurewebsites.net/phpbb3'>Forum </a></li>
+			<li><a href='http://uclteam10.azurewebsites.net/wiki/index.php?title=Main_Page'>Wiki </a></li>
+			<li><a href='contact.php'>Contact</a></li>
+			<li class='divider'></li>
+				";
+			  
 			if(isUserLoggedIn()){
 				echo"  
                 <li><a href='user_settings.php'>User Settings</a></li>
@@ -39,9 +46,9 @@ echo "
 			}
 
 			echo"
-				<li><a href='http://uclteam10.azurewebsites.net/phpbb3'>Forum </a></li>
-				<li><a href='contact.php'>Contact</a></li>
-                <li class='divider'></li>
+				
+				
+                
                 <li class='dropdown-header'>Login Difficulties</li>
 				<li><a href='forgot-password.php'>Forgot Password</a></li>";
 				if ($emailActivation)
