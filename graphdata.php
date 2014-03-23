@@ -62,7 +62,7 @@ $(function () {
             chart: {
             	zoomType: 'x',
                 type: 'spline',
-                backgroundColor: Highcharts.Color(graphColour).setOpacity(0).get('rgba')
+                backgroundColor: '#FFFFFF'
                     
             },
             title: {

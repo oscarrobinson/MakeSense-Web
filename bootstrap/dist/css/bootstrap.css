@@ -6826,32 +6826,34 @@ td.visible-print {
   min-height: 100%;
   height: auto !important;
   height: 100%;
+  min-width:1000px;
   
   /* Negative indent footer by its height */
   /* Pad bottom by footer height */
 }
 
 /*graph ------------------------------*/
-
-#dataList{
-	margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 .table{ 
     margin-left: auto;
     margin-right: auto;
 }
 
+#allControls{
+
+    width:275px;
+    float:left;
+    margin-left:50px;
+    background-color:lightgray;
+    padding:15px;
+}
+
 #graph{
     width: 800px; 
     height: 400px; 
-    margin: 0 auto;
+    margin-left:350px;
 }
 #controls{
-    width:400px;
-    margin-left:auto;
+    width:250px;
     margin-right:auto;
     padding-bottom:50px;
 }
@@ -6859,6 +6861,7 @@ td.visible-print {
 #refreshButton{
     width:100px;
     float:left;
+    margin-right:50px;
 }
 #autoUpdate{
 
@@ -6930,18 +6933,15 @@ td.visible-print {
 
 #networkselect{
   width:200px;
-  margin-left:50px;
 }
 
 #ontologyselect{
   width:200px;
-  margin-left:50px
 }
 
 #sensorselect{
   width:200px;
-  margin-left:50px;
-  float:left;
+  margin-bottom:50px;
 }
 
 /* ABOUT PAGE */

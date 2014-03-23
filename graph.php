@@ -14,7 +14,9 @@ $datamanager = new DataManager();
 if (!($loggedInUser->checkPermission(array(2)))){
 echo "
 <body>
-<div id='wrap'>
+
+
+  <div id='wrap'>
 	<div id='networkadd1'>
 		<div id='networkadd'>
 			<p>Add a network! Give it a name and type in your unique identifier number to link to it</p>
@@ -24,8 +26,8 @@ echo "
 			<input type='submit' value='Submit'>
 		</div>
 	</div>
-	<hr>
 
+  <div id='allControls'>
 	<div id='networkselect'>
 		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."
 	</div>
@@ -40,16 +42,9 @@ echo "
 		<div id='sensorselectlist'>
 
 		</div>
-	</div>
-
-	<div id='content'>
-		<h2>$loggedInUser->displayname's Sensor Network</h2>
-		<br>
 	</div>";
 	if (!($loggedInUser->checkPermission(array(2)))){
 	echo "
-	<div id='main'>
-		<div id='graphs'>
 				<div id='controls'>
 					<div id='autoUpdate'>
 						<form>
@@ -59,10 +54,9 @@ echo "
 					<div id='refreshButton'><button type='button'>Refresh Graph</button>
 					</div>
 				</div>
+        </div>
 				<div id='graph'>
-				</div>
-			</div>
-		</div>";
+				</div>";
 		}
 
 		/*<div>
@@ -84,11 +78,6 @@ echo"
     var autoUpdate = false;
     var autoUpdateJustOff = false; //used to prevent autoupdate occuring one last time after it is turned off
     var timeout;
-    $(document).ready(function()
-    {
-      //refreshDataList();
-      loadGraph();
-    });
 
     $('#refreshButton').click(function() {
         loadGraph();
