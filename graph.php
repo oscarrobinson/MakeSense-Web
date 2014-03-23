@@ -29,6 +29,12 @@ echo "
 	<div id='networkselect'>
 		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."
 	</div>
+  <div id='ontologyselect'>
+    Select Sensor Type:
+    <div id='ontologyselectlist'>
+
+    </div>
+  </div>
 	<div id='sensorselect'>
 		Select Sensor:
 		<div id='sensorselectlist'>
@@ -101,6 +107,23 @@ echo"
         }
     });
 
+    function getNetworkSelected(){
+      var network = []
+      $(\"#networkList option:selected\").each(function(i, selected){ 
+          network[i] = $(selected).val(); 
+      });
+      return network;  
+    }
+
+    function getOntologySelected()
+    {
+      var ontology = []
+      $(\"#ontologyselectlist option:selected\").each(function(i, selected){ 
+          ontology[i] = $(selected).val(); 
+      });
+      return ontology;  
+    }
+
 
     function loadGraph()
     {
@@ -109,13 +132,13 @@ echo"
     		var sensors = [];
     		$(\"#sensorList option:selected\").each(function(i, selected){ 
   				sensors[i] = $(selected).text(); 
-			});
+			   });
         	$.ajax({
           	  url: 'graphdata.php',
           	  type: 'post',
          	  data: { sensorArray: sensors },
           	  success:function(data){
-              $('#graph').html(data);
+                $('#graph').html(data);
             }
         	});
 			if(autoUpdate){
@@ -129,22 +152,58 @@ echo"
         }
 
     }
+
     
+    var selectedNetwork = \"\";
+
     $( \"#networkList\" ).change(function () {
+      console.log('Network select change');
     	var str = \"\";
    		$( \"#networkList option:selected\" ).each(function() {
     		str += $( this ).text() + \" \";
+        selectedNetwork = str;
     	});
         $.ajax({
-            url: 'sensorlist.php',
+            url: 'ontologylist.php',
             type: 'post',
             datatype: 'string',
             data: { network: str },
             success:function(data){
-                $('#sensorselectlist').html(data);
+                $('#ontologyselectlist').html(data);
+                $('#ontologyselectlist').prop('selectedIndex',0);
+                console.log('In Ontology List generation Ajax:'+getOntologySelected());
+                $.ajax({
+                  url: 'sensorlist.php',
+                  type: 'post',
+                  data: { ontology: getOntologySelected()[0], network: str},
+                  success:function(data){
+                      $('#sensorselectlist').html(data);
+                      loadGraph();
+                  }
+
+                });
             }
         });
   	}).change();
+
+    
+
+    $( '#ontologyselectlist' ).change(function () {
+      console.log('Ontology select change');
+      var str = \"\";
+      $( \"#ontologyList option:selected\" ).each(function() {
+        str += $( this ).val() + \" \";
+      });
+        $.ajax({
+            url: 'sensorlist.php',
+            type: 'post',
+            data: { ontology: str, network: getNetworkSelected()[0] },
+            success:function(data){
+                $('#sensorselectlist').html(data);
+                loadGraph();
+            }
+        });
+    }).change();
 
 
 	$( '#sensorselectlist' ).change(function () {

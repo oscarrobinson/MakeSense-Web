@@ -6933,6 +6933,11 @@ td.visible-print {
   margin-left:50px;
 }
 
+#ontologyselect{
+  width:200px;
+  margin-left:50px
+}
+
 #sensorselect{
   width:200px;
   margin-left:50px;

@@ -102,14 +102,45 @@ class DataManager
         }
         else
         {
-            $html = "<select multiple id=\"$id\" lass=\"form-control\">";
+            $html = "<select multiple id=\"$id\" class=\"form-control\">";
         }
+        $counter=0;
         foreach($selectArray as $item){
-            $html = $html."<option value=\"".$item."\">".$item."</option>";
+            if ($counter==0){
+                $html = $html."<option selected value=\"".$item."\">".$item."</option>";
+            }
+            else{
+                $html = $html."<option value=\"".$item."\">".$item."</option>";
+            }
+            $counter+=1;
         }
         $html = $html."</select>";
         return $html;
 
+
+    }
+
+    public function getOntologySelector($selectArray, $isMultiple, $id){
+        $html = "";
+        if(!$isMultiple){
+            $html = "<select id=\"$id\" class=\"form-control\">";
+        }
+        else
+        {
+            $html = "<select multiple id=\"$id\" class=\"form-control\">";
+        }
+        $counter = 0;
+        foreach($selectArray as $item){
+            if ($counter==0){
+                $html = $html."<option selected value=\"".$item[0]."\">".$item[1]."</option>";
+            }
+            else{
+                $html = $html."<option value=\"".$item[0]."\">".$item[1]."</option>";
+            }
+            $counter+=1;
+        }
+        $html = $html."</select>";
+        return $html;
 
     }
 
@@ -124,6 +155,26 @@ class DataManager
             array_push($returnArray, $row[0]);
         }
         return $returnArray;
+    }
+
+
+    public function getSensorsInNetworkWithOntology($networkId,$ontologyId){
+        $sql_select = "SELECT sensor_id FROM sensors WHERE network_id='".$networkId."' AND ontology_id='".$ontologyId."'";
+        $stmt = $this->conn->query($sql_select);
+        $data = $stmt->fetchAll();
+        $returnArray = array();
+        foreach($data as $row)
+        {
+            array_push($returnArray, $row[0]);
+        }
+        return $returnArray;
+    }
+
+    public function getOntologiesInNetwork($networkId){
+        $sql_select= "SELECT ont.ontology_id, ontologies.ontology_name FROM (SELECT DISTINCT ontology_id FROM sensors WHERE network_id='$networkId') AS ont INNER JOIN ontologies ON ont.ontology_id = ontologies.ontology_id";
+        $stmt = $this->conn->query($sql_select);
+        $data = $stmt->fetchAll();
+        return $data;
     }
 }
 ?>
