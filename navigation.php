@@ -33,7 +33,7 @@ echo "
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'>More <b class='caret'></b></a>
             <ul class='dropdown-menu'>
 			  
-			<li><a href='http://uclteam10.azurewebsites.net/phpbb3'>Forum </a></li>
+			<li><a href='http://makesense.boards.net'>Forum </a></li>
 			<li><a href='http://uclteam10.azurewebsites.net/wiki/index.php?title=Main_Page'>Wiki </a></li>
 			<li><a href='contact.php'>Contact</a></li>
 			<li class='divider'></li>
