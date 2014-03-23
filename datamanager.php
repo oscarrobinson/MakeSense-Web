@@ -157,6 +157,17 @@ class DataManager
         return $returnArray;
     }
 
+    public function getOntologyForSensor($sensorId){
+        $sql_select = "SELECT ontology_id FROM sensors WHERE sensor_id='".$sensorId."'";
+        $stmt = $this->conn->query($sql_select);
+        $data = $stmt->fetchAll();
+        $sql_select = "SELECT ontology_id, ontology_name, ontology_description, ontology_axis FROM ontologies WHERE ontology_id='".$data[0][0]."'";
+        $stmt = $this->conn->query($sql_select);
+        $data = $stmt->fetchAll();
+        return $data[0];
+
+    }
+
 
     public function getSensorsInNetworkWithOntology($networkId,$ontologyId){
         $sql_select = "SELECT sensor_id FROM sensors WHERE network_id='".$networkId."' AND ontology_id='".$ontologyId."'";

@@ -51,6 +51,8 @@ foreach($ids as $id){
     $sensorData = $dataManager->getDataList($id);
     array_push($sensorsData, $sensorData);
 }
+
+$ontologyArray = $dataManager->getOntologyForSensor($ids[0]);
 //prepares the JS for the graph
 $graphScript = "<script>
 var graphColour = '#6E6E6E';
@@ -95,7 +97,7 @@ $(function () {
             },
             yAxis: {
                 title: {
-                    text: 'Light Intensity',
+                    text: '".$ontologyArray[3]."',
                     style: {
                         color: 'black',
                         fontWeight: 'bold'
