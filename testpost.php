@@ -1,7 +1,11 @@
 <?php
+include_once "datamanager.php";
 
-$something = $_POST['thing'];
-echo "This page is working :)<br></br>";
-echo $something;
+$sensorId = $_POST['sensorId'];
+$netId = $_POST['netId'];
+$sensorOnt = $_POST['sensorOnt'];
+
+$dataManager = new DataManager();
+$dataManager->addSensor($sensorId, $netId, $sensorOnt);
 
 ?>
