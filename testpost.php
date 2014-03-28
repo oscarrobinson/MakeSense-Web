@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 'On');
 include_once "datamanager.php";
 
 $sensorId = $_POST['sensorId'];
