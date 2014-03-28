@@ -9,6 +9,6 @@ $netId = $_POST['netId'];
 $dataManager = new DataManager();
 //$dataManager->addSensor($sensorId, $netId, $sensorOnt);
 $thing = $dataManager->getSensorsInNetwork($netId);
-echo $thing
+echo $thing;
 
 ?>
