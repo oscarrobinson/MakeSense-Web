@@ -192,6 +192,7 @@ class DataManager
         $sql_add = "INSERT INTO sensors(sensor_id, network_id, ontology_id) VALUES(\'".$sensorId."\',\'".$netId."\',\'".$sensorOnt."\')"
         $stmt = $this->conn->query($sql_add);
         $data = $stmt->fetchAll();
+        return;
     }
 }
 ?>
