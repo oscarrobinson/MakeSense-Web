@@ -1,5 +1,7 @@
 import requests
 
-payload = {'sensorId': 'TESTTHING', 'netId': 'NETTEST', 'sensorOnt': '12'}
-r = requests.post("http://uclteam10.azurewebsites.net/testpost.php", data=payload)
-print r.text
+def addSensor(sensorId, netId, sensorOnt):
+	payload = {'sensorId': sensorId, 'netId': netId, 'sensorOnt': sensorOnt}
+	r = requests.post("http://uclteam10.azurewebsites.net/testpost.php", data=payload)
+
+addSensor("thing","thing2","12")
