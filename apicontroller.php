@@ -2,6 +2,7 @@
 ini_set('display_errors', 'On');
 include_once "datamanager.php";
 
+
 //ERROR CODES
 $duplicateEntryError = 23000;
 $userValidCode = 1000;
@@ -30,10 +31,15 @@ if ($requestCode=="10"){
 	$sensorOnt = $_POST['sensorOnt'];
 	$sensorName = $_POST['sensorName'];
 	$sensorDescription = $_POST['sensorDescription'];
-	try {$dataManager->addSensor($sensorId, $netId, $sensorOnt, $sensorName, $sensorDescription);}
-	catch(PDOException $e){
-		if ($e->errorInfo[0]=="23000"){
-			echo $duplicateEntryError;
+	$username = $_POST['username'];
+	$id = $_POST['id'];
+	$userValid = $dataManager->validateApiUser($username, $id);
+	if ($userValid){
+		try {$dataManager->addSensor($sensorId, $netId, $sensorOnt, $sensorName, $sensorDescription);}
+		catch(PDOException $e){
+			if ($e->errorInfo[0]=="23000"){
+				echo $duplicateEntryError;
+			}
 		}
 	}
 }
