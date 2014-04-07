@@ -18,7 +18,4 @@ if ($requestCode=="1"){
 
 echo "This page is working :)<br></br>";
 
-
-
-
 ?>
