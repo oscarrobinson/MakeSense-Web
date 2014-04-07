@@ -189,7 +189,7 @@ class DataManager
     }
 
     public function addSensor($sensorId, $netId, $sensorOnt, $sensorName, $sensorDescription){
-        $sql_add = "INSERT INTO sensors(sensor_id, sensor_name, sensor_description, network_id, ontology_id) VALUES('".$sensorId."','".$sensorName."','".$sensorDescription."','".$netId."','".$sensorOnt."')";
+        $sql_add = "INSERT INTO sensors(sensor_id, sensor_name, sensor_description, network_id, ontology_id) VALUES('$sensorId','$sensorName','$sensorDescription','$netId','$sensorOnt')";
         $stmt = $this->conn->query($sql_add);
         return;
     }
