@@ -13,6 +13,7 @@ if ($requestCode=="1"){
 	$sensorOnt = $_POST['sensorOnt'];
 	$sensorName = $_POST['sensorName'];
 	$sensorDescription = $_POST['sensorDescription'];
+	echo "$sensorName $sensorDescription";
 	$dataManager->addSensor($sensorId, $netId, $sensorOnt, $sensorName, $sensorDescription);
 }
 
