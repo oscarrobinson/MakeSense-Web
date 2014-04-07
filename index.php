@@ -37,7 +37,7 @@ echo "
 				</div>
 			</div>
 			<div class='item'>
-				<img src='img/suchsense.jpg' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:Second slide' alt='Second slide'>
+				<img src='img/Models/gateway1.png' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:Second slide' alt='Second slide'>
 				<div class='container'>
 					<div class='carousel-caption'>
 						<h1>User Accounts</h1>
@@ -52,7 +52,7 @@ echo "
 				</div>
 			</div>
 			<div class='item'>
-				<img src='img/hank7.jpg' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:Third slide' alt='Third slide'>
+				<img src='img/hardware.jpg' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:Third slide' alt='Third slide'>
 				<div class='container'>
 					<div class='carousel-caption'>
 						<h1>Data Analytics</h1>
