@@ -6,14 +6,14 @@ include_once "datamanager.php";
 $dataManager = new DataManager();
 
 $requestCode = $_POST['requestCode'];
-echo $requestCode;
 
 if ($requestCode=="1"){
 	$sensorId = $_POST['sensorId'];
 	$netId = $_POST['netId'];
 	$sensorOnt = $_POST['sensorOnt'];
-	$dataManager->addSensor($sensorId, $netId, $sensorOnt);
-	echo $sensorId;
+	$sensorName = $_POST['sensorName'];
+	$sensorDescription = $_POST['sensorDescription'];
+	$dataManager->addSensor($sensorId, $netId, $sensorOnt, $sensorName, $sensorDescription);
 }
 
 
