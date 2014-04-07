@@ -2,6 +2,9 @@
 ini_set('display_errors', 'On');
 include_once "datamanager.php";
 
+//ERROR CODES
+$duplicateEntryError = 23000;
+
 
 $dataManager = new DataManager();
 
@@ -16,12 +19,8 @@ if ($requestCode=="1"){
 	try {$dataManager->addSensor($sensorId, $netId, $sensorOnt, $sensorName, $sensorDescription);}
 	catch(PDOException $e){
 		if ($e->errorInfo[0]=="23000"){
-			echo "Duplicate Entry";
+			echo $duplicateEntryError;
 		}
 	}
 }
-
-
-echo "This page is working :)<br></br>";
-
 ?>
