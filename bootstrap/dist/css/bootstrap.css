@@ -4933,6 +4933,10 @@ a.list-group-item.active > .badge,
   margin-left: 3px;
 }
 
+.positioning{
+  margin-top:70px;
+}
+
 .jumbotron {
   margin-top: -70px;
   margin-bottom: 30px;
