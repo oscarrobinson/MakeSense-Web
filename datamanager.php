@@ -204,5 +204,17 @@ class DataManager
         $stmt = $this->conn->query($sql_add);
         return;
     }
+
+    public function validateApiUser($username, $id){
+        $sql_query = "SELECT * FROM uc_users WHERE user_name='$username' AND id='$id'";
+        $stmt = $this->conn->query($sql_query);
+        $data = $stmt->fetchAll();
+        if(count($data)==0){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
 ?>
