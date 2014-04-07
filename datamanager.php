@@ -206,7 +206,7 @@ class DataManager
     }
 
     public function validateApiUser($username, $id){
-        $sql_query = "SELECT * FROM uc_users WHERE user_name='$username' AND id='$id'"
+        $sql_query = "SELECT * FROM uc_users WHERE user_name='$username' AND id='$id'";
         $stmt = $this->conn->query($sql_query);
         $data = $stmt->fetchAll();
         if(count($data)==0){
