@@ -6851,6 +6851,17 @@ td.visible-print {
     padding:15px;
 }
 
+#networkAdd{
+	width:100%;	
+	position:center;
+	width:275px;
+    margin-left:50px;
+    background-color:lightgray;
+    padding:15px;
+}
+
+
+
 #graph{
     width: 800px; 
     height: 400px; 
@@ -6922,16 +6933,31 @@ td.visible-print {
 	top:1px;
 }
 
-#networkadd{
-	margin-left: 40px;
-	margin-right: 40px;
-	margin-bottom: 20px;
+#addNetwork{
+	width:275px;
+    float:left;
+    margin-left:50px;
+    background-color:lightgray;
+    padding:15px;
+	margin-bottom:30px;
+}
+
+.pleasedontfloat { 
+    clear:both;
 }
 
 #networkadd1{
 	width:100%;	
 	position:center;
+	display: block;
 }
+#networkselect{
+  width:200px;
+}
+#networkselect{
+  width:200px;
+}
+
 
 /* graph.php network selection shit */
 

@@ -13,28 +13,67 @@ echo "
 <body>
 <div id='wrap'>
 <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class='jumbotron'>
-      <div class='container'>
-		<div id='sensorinfo'>
-			<h1>Customisable Sensor Networks</h1>
-			<p>MakeSense is an easy to set up, reliable sensor network allowing users to monitor any environmental factor they desire.  Data is viewable using the MakeSense web platform where all sensor data from the user’s network is viewable ready for analysis.  Building managers could use the system to monitor the temperature, light levels and movement in rooms in their buildings and use the data provided to optimise how they heat and light rooms at different times of day.</p>
-			<!--<p><a class='btn btn-primary btn-lg'>Learn more &raquo;</a></p>-->
+    
+	<div class='jumbotron'>
+		<div class='container'>
+			<div id='sensorinfo'>
+				<h1>Customisable Sensor Networks</h1>
+				<p>MakeSense is an easy to set up, reliable sensor network allowing users to monitor any environmental factor they desire.  Data is viewable using the MakeSense web platform where all sensor data from the user’s network is viewable ready for analysis.  Building managers could use the system to monitor the temperature, light levels and movement in rooms in their buildings and use the data provided to optimise how they heat and light rooms at different times of day.</p>
+				<!--<p><a class='btn btn-primary btn-lg'>Learn more &raquo;</a></p>-->
+			</div>
 		</div>
-	  </div>
     </div>
 	
 	<hr>
     <hr>
+	<div class='positioning'>
+		<div class='jumbotron'>
+			<div class='container'>
+				<div id='sensorinfo'>
+					<h1>Getting Started</h1>";
+						if(!isUserLoggedIn()){
+						echo"
+						<p>To get started, create an account and login!</p>";
+						}
+						if(isUserLoggedIn()){
+						echo"<p>Find your way to the 'Graph' tab. This page is the control center and is where you are able to view the readings for each of your networks. </p>
+						
+						<p>You should see something similar to the screenshot below: </p>
+						<br>
+						<img src='img/graph.png' >
+						
+						<p><br>The box on the left is where you can select the network you wish to view, the sensor ontology (light intensity, temperature etc) and the sensors.</p>
+						
+						<p>It is possible to select several sensors at once by highlighting the relevant options</p>
+						
+						<p><br>To add a network, you must get the unique identifier tag on your gateway sensor hardware and type it in the box, as shown below. Give your network a name (like 'Office Humidities', for example) <br></p>
+						<br>
+						<img src='img/addnetwork.png' >
+						<p><br>If the network identifier you have added matches, then your network will instantly start recording data!</p>
+						<p><br>For a more in depth user manual, see the site Wiki under the 'More' tab</p>
+						
+						";
+						}
+						echo "
+				</div>
+			</div>
+		</div>
+	</div>
 	
-	<div class='jumbotron'>	
-		<div class='container'>
+	<hr>
+	<hr>
+	<div class='positioning'>
+		<div class='jumbotron'>	
+			<div class='container'>
 				<div id='makesensevideo'>
+					<h1>What is MakeSense?</h1>
 					<embed
 						width='600dp' height='450dp'
 						src='http://www.youtube.com/v/TMhPiHF3Qzg'
 						type='application/x-shockwave-flash'>
 					</embed>
 				</div>
+			</div>
 		</div>
 	</div>
 	

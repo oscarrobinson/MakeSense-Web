@@ -17,7 +17,7 @@ echo "
 
 
   <div id='wrap'>
-	<div id='networkadd1'>
+	<div id='addNetwork'>
 		<div id='networkadd'>
 			<p>Add a network! Give it a name and type in your unique identifier number to link to it</p>
 			<form action='#'>
@@ -25,6 +25,9 @@ echo "
 				Unique Identifier: <input type='text' name='uniqueid'><br>
 			<input type='submit' value='Submit'>
 		</div>
+	</div>
+	
+	<div class='pleasedontfloat'>
 	</div>
 
   <div id='allControls'>
