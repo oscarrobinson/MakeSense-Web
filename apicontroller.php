@@ -15,7 +15,7 @@ if ($requestCode=="1"){
 	$sensorDescription = $_POST['sensorDescription'];
 	try {$dataManager->addSensor($sensorId, $netId, $sensorOnt, $sensorName, $sensorDescription);}
 	catch(PDOException $e){
-		if ($e->errorInfo[0]==40002){
+		if ($e->errorInfo[0]=="23000"){
 			echo "Duplicate Entry";
 		}
 	}
