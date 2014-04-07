@@ -13,7 +13,7 @@ require_once("models/header.php");
 
 
 //Prevent the user visiting the logged in page if he/she is already logged in
-if(isUserLoggedIn()) { header("Location: account.php"); die(); }
+if(isUserLoggedIn()) { header("Location: about.php"); die(); }
 
 //Forms posted
 if(!empty($_POST))
@@ -77,7 +77,7 @@ if(!empty($_POST))
 					$_SESSION["userCakeUser"] = $loggedInUser;
 					
 					//Redirect to user account page
-					header("Location: account.php");
+					header("Location: about.php");
 					die();
 				}
 			}
