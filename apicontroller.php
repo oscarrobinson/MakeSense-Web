@@ -6,6 +6,7 @@ include_once "datamanager.php";
 $dataManager = new DataManager();
 
 $requestCode = $_POST['requestCode'];
+echo $requestCode;
 
 if ($requestCode=="1"){
 	$sensorId = $_POST['sensorId'];
