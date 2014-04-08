@@ -216,5 +216,11 @@ class DataManager
             return true;
         }
     }
+
+    public function addReading($sensorId, $reading, $timestamp){
+        $sql_add = "INSERT INTO data(sensor_id, timestamp, reading) VALUES('$sensorId', '$timestamp','$reading')";
+        $stmt = $this->conn->query($sql_add);
+        return;
+    }
 }
 ?>
