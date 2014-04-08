@@ -13,6 +13,8 @@ $badRequest = 0;
 $authenticationCode = "1";
 $addSensorCode = "10";
 $addReadingCode = "20";
+$addOntologyCode = "30";
+$addNetworkCode = "40";
 
 
 $dataManager = new DataManager();
@@ -73,6 +75,44 @@ else if ($requestCode==$addReadingCode){
 		echo $userInvalidCode;
 	}
 }
+
+else if ($requestCode==$addOntologyCode){
+	$username = $_POST['username'];
+	$id = $_POST['id'];
+	$userValid = $dataManager->validateApiUser($username, $id);
+	if ($userValid){
+		$name = $_POST['name'];
+		$description = $_POST['description'];
+		$axis = $_POST['axis'];
+		$ontologyCode = $dataManager->addOntology($name, $description, $axis);
+		echo $ontologyCode;
+	}
+	else{
+		echo $userInvalidCode;
+	}
+}
+
+else if ($requestCode==$addNetworkCode){
+	$username = $_POST['username'];
+	$id = $_POST['id'];
+	$userValid = $dataManager->validateApiUser($username, $id);
+	if ($userValid){
+		$netId = $_POST['netId'];
+		$name = $_POST['name'];
+		$description = $_POST['description'];
+		try {$dataManager->addNetwork($id, $netId, $name, $description);}
+		catch(PDOException $e){
+			if ($e->errorInfo[0]=="23000"){
+				echo $duplicateEntryError;
+			}
+		}
+	}
+	else{
+		echo $userInvalidCode;
+	}
+}
+
+
 
 else
 {

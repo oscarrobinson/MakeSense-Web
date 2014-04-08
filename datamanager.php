@@ -222,5 +222,40 @@ class DataManager
         $stmt = $this->conn->query($sql_add);
         return;
     }
+
+    public function addOntology($name, $description, $axis){
+        //test if ontology exsits, if so, get its id
+        $query = "SELECT ontology_id FROM ontologies WHERE ontology_name='$name' AND ontology_description='$description' AND ontology_axis='$axis'";
+        $stmt = $this->conn->query($query);
+        $data = $stmt->fetchAll();
+        if (!empty($data[0])){
+            return $data[0][0];
+        }
+        else{
+            $query = "INSERT INTO ontologies(ontology_name, ontology_description, ontology_axis) VALUES ('$name', '$description', '$axis')";
+            $stmt = $this->conn->query($query);
+            $query = "SELECT ontology_id FROM ontologies WHERE ontology_name='$name' AND ontology_description='$description' AND ontology_axis='$axis'";
+            $stmt = $this->conn->query($query);
+            $data = $stmt->fetchAll();
+            return $data[0][0];
+        }
+    }
+
+    public function addNetwork($id, $netId, $name, $description){
+        if ($name=="" and $description==""){
+            $sql_add = "INSERT INTO networks(id, network_id) VALUES('$id','$netId')";
+        }
+        else if($name!="" and $description==""){
+            $sql_add = "INSERT INTO networks(id, network_id, network_name) VALUES('$id','$netId','$name')";           
+        }
+        else if($name=="" and $description!=""){
+            $sql_add = "INSERT INTO networks(id, network_id, network_description) VALUES('$id','$netId','$description')";           
+        }
+        else{
+            $sql_add = "INSERT INTO networks(id, network_id, network_name, network_description) VALUES('$id','$netId','$name','$description')";
+        }
+        $stmt = $this->conn->query($sql_add);
+        return;
+    }
 }
 ?>
