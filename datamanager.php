@@ -190,24 +190,28 @@ class DataManager
 
     public function addSensor($sensorId, $netId, $sensorOnt, $sensorName, $sensorDescription){
         if ($sensorName=="" and $sensorDescription==""){
-            $sql_add = "INSERT INTO sensors(sensor_id, network_id, ontology_id) VALUES('$sensorId','$netId','$sensorOnt')";
+            $stmt = $this->conn->prepare("INSERT INTO sensors(sensor_id, network_id, ontology_id) VALUES(:sensorId, :netId, :sensorOnt)");
+            $stmt->execute(array(':sensorId' => $sensorId, ':netId' => $netId, ':sensorOnt' => $sensorOnt));
+
         }
         else if($sensorName!="" and $sensorDescription==""){
-            $sql_add = "INSERT INTO sensors(sensor_id, sensor_name, network_id, ontology_id) VALUES('$sensorId','$sensorName', '$netId','$sensorOnt')";           
+            $stmt = $this->conn->prepare("INSERT INTO sensors(sensor_id, sensor_name, network_id, ontology_id) VALUES(:sensorId, :sensorName, :netId, :sensorOnt)");
+            $stmt->execute(array(':sensorId' => $sensorId, ':sensorName' => $sensorName, ':netId' => $netId, ':sensorOnt' => $sensorOnt));          
         }
         else if($sensorName=="" and $sensorDescription!=""){
-            $sql_add = "INSERT INTO sensors(sensor_id, sensor_description, network_id, ontology_id) VALUES('$sensorId','$sensorDescription', '$netId','$sensorOnt')";           
+            $stmt = $this->conn->prepare("INSERT INTO sensors(sensor_id, sensor_description, network_id, ontology_id) VALUES( :sensorId, :sensorDescription, :netId, :sensorOnt)");
+            $stmt->execute(array(':sensorId' => $sensorId, ':sensorDescription' => $sensorDescription,':netId' => $netId, ':sensorOnt' => $sensorOnt));              
         }
         else{
-            $sql_add = "INSERT INTO sensors(sensor_id, sensor_name, sensor_description, network_id, ontology_id) VALUES('$sensorId','$sensorName','$sensorDescription','$netId','$sensorOnt')";
+            $stmt = $this->conn->prepare("INSERT INTO sensors(sensor_id, sensor_name, sensor_description, network_id, ontology_id) VALUES(:sensorId, :sensorName, :sensorDescription, :netId, :sensorOnt)");
+            $stmt->execute(array(':sensorId' => $sensorId, ':sensorName' => $sensorName, ':sensorDescription' => $sensorDescription,':netId' => $netId, ':sensorOnt' => $sensorOnt));   
         }
-        $stmt = $this->conn->query($sql_add);
         return;
     }
 
     public function validateApiUser($username, $id){
-        $sql_query = "SELECT * FROM uc_users WHERE user_name='$username' AND id='$id'";
-        $stmt = $this->conn->query($sql_query);
+        $stmt = $this->conn->prepare("SELECT * FROM uc_users WHERE user_name=:username AND id=:id");
+        $stmt->execute(array(':username' => $username, ':id' => $id));
         $data = $stmt->fetchAll();
         if(count($data)==0){
             return false;
@@ -218,24 +222,25 @@ class DataManager
     }
 
     public function addReading($sensorId, $reading, $timestamp){
-        $sql_add = "INSERT INTO data(sensor_id, timestamp, reading) VALUES('$sensorId', '$timestamp','$reading')";
-        $stmt = $this->conn->query($sql_add);
+        $stmt = $this->conn->prepare("INSERT INTO data(sensor_id, timestamp, reading) VALUES(:sensorId, :timestamp, :reading)");
+        $stmt->execute(array(':sensorId' => $sensorId, ':timestamp' => $timestamp, ':reading' => $reading));
+
         return;
     }
 
     public function addOntology($name, $description, $axis){
         //test if ontology exsits, if so, get its id
-        $query = "SELECT ontology_id FROM ontologies WHERE ontology_name='$name' AND ontology_description='$description' AND ontology_axis='$axis'";
-        $stmt = $this->conn->query($query);
+        $stmt = $this->conn->prepare("SELECT ontology_id FROM ontologies WHERE ontology_name=:name AND ontology_description=:description AND ontology_axis=:axis");
+        $stmt->execute(array(':name' => $name, ':description' => $description, ':axis' => $axis));
         $data = $stmt->fetchAll();
         if (!empty($data[0])){
             return $data[0][0];
         }
         else{
-            $query = "INSERT INTO ontologies(ontology_name, ontology_description, ontology_axis) VALUES ('$name', '$description', '$axis')";
-            $stmt = $this->conn->query($query);
-            $query = "SELECT ontology_id FROM ontologies WHERE ontology_name='$name' AND ontology_description='$description' AND ontology_axis='$axis'";
-            $stmt = $this->conn->query($query);
+            $stmt = $this->conn->prepare("INSERT INTO ontologies(ontology_name, ontology_description, ontology_axis) VALUES (:name, :description, :axis)");
+            $stmt->execute(array(':name' => $name, ':description' => $description, ':axis' => $axis));
+            $stmt = $this->conn->prepare("SELECT ontology_id FROM ontologies WHERE ontology_name=:name AND ontology_description=:description AND ontology_axis=:axis");
+            $stmt->execute(array(':name' => $name, ':description' => $description, ':axis' => $axis));
             $data = $stmt->fetchAll();
             return $data[0][0];
         }
@@ -243,18 +248,21 @@ class DataManager
 
     public function addNetwork($id, $netId, $name, $description){
         if ($name=="" and $description==""){
-            $sql_add = "INSERT INTO networks(id, network_id) VALUES('$id','$netId')";
+            $stmt = $this->conn->prepare("INSERT INTO networks(id, network_id) VALUES(:id, :netId)");
+            $stmt->execute(array(':id' => $id, ':netId' => $netId));
         }
         else if($name!="" and $description==""){
-            $sql_add = "INSERT INTO networks(id, network_id, network_name) VALUES('$id','$netId','$name')";           
+            $stmt = $this->conn->prepare("INSERT INTO networks(id, network_id, network_name) VALUES(:id, :netId, :name)");
+            $stmt->execute(array(':id' => $id, ':netId' => $netId, ':name' => $name));         
         }
         else if($name=="" and $description!=""){
-            $sql_add = "INSERT INTO networks(id, network_id, network_description) VALUES('$id','$netId','$description')";           
+            $stmt = $this->conn->prepare("INSERT INTO networks(id, network_id, network_description) VALUES(:id, :netId, :description)");
+            $stmt->execute(array(':id' => $id, ':netId' => $netId, ':description' => $description));           
         }
         else{
-            $sql_add = "INSERT INTO networks(id, network_id, network_name, network_description) VALUES('$id','$netId','$name','$description')";
+            $stmt = $this->conn->prepare("INSERT INTO networks(id, network_id, network_name, network_description) VALUES(:id, :netId, :name, :description)");
+            $stmt->execute(array(':id' => $id, ':netId' => $netId, ':name' => $name, ':description' => $description));  
         }
-        $stmt = $this->conn->query($sql_add);
         return;
     }
 }
