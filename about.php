@@ -138,6 +138,22 @@ echo "
 	<hr>
     <hr>
 	
+	<div class='positioning'>
+		<div class='jumbotron'>	
+			<div class='container'>
+				<h1>Project Management and Work Packages</h1>
+				<p>
+				The project was primarily managed using an agile approach in regards to work packages and progress. The team would meet around 2/3 times per week to show progress, set milestones and to make decisions on the long term plans for the project. The table below shows the dates of the meetings held by the team (with or without our supervisor). 
+				</p>
+				<p>
+				Work packages were designed with emphasis placed on the priority of each task to eventually create a minimum viable product. The key packages delivered this term has been (1) conversion to a mesh network system for the sensor nodes,(2) migration from a Laptop-based gateway to a Raspberry Pi, (3) work on the web application to support user accounts paired with personal data networks, (4) sensor ontology work, (5) database design and implementation and (6) API construction.
+				</p>
+				<p>
+				Having completed these key work packages, we believe we have created our minimum viable product. 
+				</p>
+		</div>
+	</div>
+	
 </div>";
 	
 require_once("footer.php");
@@ -146,3 +162,7 @@ echo"
 </html>";
 
 ?>
+
+
+
+
