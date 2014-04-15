@@ -21,10 +21,12 @@ echo "
 		<div id='networkadd'>
 			<p>Add a network! Give it a name and type in your unique identifier number to link to it</p>
 			<form action='#'>
-				Network Name: <input type='text' name='networkname'><br>
-				Unique Identifier: <input type='text' name='uniqueid'><br>
-			<input type='submit' value='Submit'>
+				Network Name: <input type='text' name='networkname' id='networkName'><br>
+				Network Identifier: <input type='text' name='uniqueid' id='networkId'><br>
+			<input id='submitNetwork' type='submit' value='Submit'>
+      <div id='networkErrorMessages' style='color:red'></div>
 		</div>
+
 	</div>
 	
 	<div class='pleasedontfloat'>
@@ -144,6 +146,31 @@ echo"
         }
 
     }
+
+    $('#submitNetwork').click(function(e){
+      document.getElementById('networkErrorMessages').innerHTML = '';
+      console.log('ronkers');
+      var networkIdText = $('#networkId').val();
+      var networkNameText = $('#networkName').val();
+      if(networkIdText===\"\" || networkNameText===\"\"){
+        document.getElementById('networkErrorMessages').innerHTML = '<br>No text entered for network name or unique identifier</br>';
+      }
+      else{
+        $.ajax({
+          url: 'apicontroller.php',
+          type: 'post',
+          datatype: 'string',
+          data: {username: '".$loggedInUser->username."', id:'".$loggedInUser->user_id."', requestCode: '40', name:networkNameText, netId:networkIdText, description:''},
+          success:function(data){
+            console.log(data);
+            if(data===\"23000\"){
+                document.getElementById('networkErrorMessages').innerHTML = '<br>Network with id '+networkIdText+' already exists on your account</br>';
+            }
+
+          }
+        });
+      }
+    });
 
     
     var selectedNetwork = \"\";
