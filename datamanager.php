@@ -82,16 +82,44 @@ class DataManager
     }
 
     public function getNetworksForAccount($accountId){
-        $sql_select = "SELECT network_id FROM networks WHERE id='".$accountId."'";
+        $sql_select = "SELECT network_id, network_name FROM networks WHERE id='".$accountId."'";
         $stmt = $this->conn->query($sql_select);
         $data = $stmt->fetchAll();
         $returnArray = array();
         foreach($data as $row)
         {
-            array_push($returnArray, $row[0]);
+            if ($row[1]==""){
+                array_push($returnArray, array($row[0],$row[0]));
+            }
+            else{
+                array_push($returnArray, array($row[1],$row[0]));
+            }
         }
         return $returnArray;
 
+    }
+
+    public function getSelectorNew($selectArray, $isMultiple, $id){
+        $html = "";
+        if(!$isMultiple){
+            $html = "<select id=\"$id\" class=\"form-control\">";
+        }
+        else
+        {
+            $html = "<select multiple id=\"$id\" class=\"form-control\">";
+        }
+        $counter=0;
+        foreach($selectArray as $item){
+            if ($counter==0){
+                $html = $html."<option selected value=\"".$item[1]."\">".$item[0]."</option>";
+            }
+            else{
+                $html = $html."<option value=\"".$item[1]."\">".$item[0]."</option>";
+            }
+            $counter+=1;
+        }
+        $html = $html."</select>";
+        return $html;  
     }
 
 
@@ -170,13 +198,18 @@ class DataManager
 
 
     public function getSensorsInNetworkWithOntology($networkId,$ontologyId){
-        $sql_select = "SELECT sensor_id FROM sensors WHERE network_id='".$networkId."' AND ontology_id='".$ontologyId."'";
+        $sql_select = "SELECT sensor_id, sensor_name FROM sensors WHERE network_id='".$networkId."' AND ontology_id='".$ontologyId."'";
         $stmt = $this->conn->query($sql_select);
         $data = $stmt->fetchAll();
         $returnArray = array();
         foreach($data as $row)
         {
-            array_push($returnArray, $row[0]);
+            if ($row[1]==""){
+                array_push($returnArray, array($row[0],$row[0]));
+            }
+            else{
+                array_push($returnArray, array($row[1],$row[0]));
+            }
         }
         return $returnArray;
     }

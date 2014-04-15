@@ -7,6 +7,12 @@ $networkid = $_POST['network'];
 $ontology = $_POST['ontology'];
 
 $datamanager = new DataManager();
-echo $datamanager->getSelector($datamanager->getSensorsInNetworkWithOntology($networkid,$ontology),TRUE,"sensorList");
+
+if ($ontology!=""){
+	echo $datamanager->getSelectorNew($datamanager->getSensorsInNetworkWithOntology($networkid,$ontology),TRUE,"sensorList");
+}
+else{
+	echo "<b>No Sensors Found</b>";
+}
 
 ?>

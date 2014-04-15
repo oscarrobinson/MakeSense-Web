@@ -34,7 +34,7 @@ echo "
 
   <div id='allControls'>
 	<div id='networkselect'>
-		Select Network: ".$datamanager->getSelector($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."
+		Select Network: ".$datamanager->getSelectorNew($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."
 	</div>
   <div id='ontologyselect'>
     Select Sensor Type:
@@ -125,7 +125,7 @@ echo"
         if (!autoUpdateJustOff){
     		var sensors = [];
     		$(\"#sensorList option:selected\").each(function(i, selected){ 
-  				sensors[i] = $(selected).text(); 
+  				sensors.push([$(selected).val(),$(selected).text()]);
 			   });
         	$.ajax({
           	  url: 'graphdata.php',
@@ -179,7 +179,7 @@ echo"
       console.log('Network select change');
     	var str = \"\";
    		$( \"#networkList option:selected\" ).each(function() {
-    		str += $( this ).text() + \" \";
+    		str += $( this ).val() + \" \";
         selectedNetwork = str;
     	});
         $.ajax({
@@ -191,10 +191,13 @@ echo"
                 $('#ontologyselectlist').html(data);
                 $('#ontologyselectlist').prop('selectedIndex',0);
                 console.log('In Ontology List generation Ajax:'+getOntologySelected());
+                var ont = '';
+                ont += getOntologySelected();
+                console.log(ont);
                 $.ajax({
                   url: 'sensorlist.php',
                   type: 'post',
-                  data: { ontology: getOntologySelected()[0], network: str},
+                  data: { ontology: ont, network: str},
                   success:function(data){
                       $('#sensorselectlist').html(data);
                       loadGraph();

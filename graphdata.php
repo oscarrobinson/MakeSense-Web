@@ -31,7 +31,7 @@ function prepareDataForGraph($sensorsData, $idList){
     $counter = 0;
     foreach($sensorsData as $sensorData){
         $result = $result."{
-                        name: 'sensor ".$idList[$counter]."',
+                        name: '".$idList[$counter][1]."',
                         type: 'area',
                         data: ".graphStringFromDataArray($sensorData)."
                     },";
@@ -48,11 +48,11 @@ $ids = $_POST['sensorArray'];
 $dataManager = new DataManager();
 $sensorsData = array();
 foreach($ids as $id){
-    $sensorData = $dataManager->getDataList($id);
+    $sensorData = $dataManager->getDataList($id[0]);
     array_push($sensorsData, $sensorData);
 }
 
-$ontologyArray = $dataManager->getOntologyForSensor($ids[0]);
+$ontologyArray = $dataManager->getOntologyForSensor($ids[0][0]);
 //prepares the JS for the graph
 $graphScript = "<script>
 var graphColour = '#6E6E6E';
