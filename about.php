@@ -11,7 +11,6 @@ require_once("navigation.php");
 
 echo "
 <body>
-<div id='wrap'>
 <!-- Main jumbotron for a primary marketing message or call to action -->
     
 	<div class='jumbotron'>
@@ -154,7 +153,19 @@ echo "
 		</div>
 	</div>
 	
-</div>";
+	<hr>
+	<hr>
+	
+	<div class='container'>
+		<h1>Requirements</h1>
+		<div id='spreadsheet'>
+			<iframe width='905' height='1360' frameborder='0' src='https://docs.google.com/spreadsheet/pub?key=0AgcQZklv7An-dC1kT3k2LXRMZEdjYV95RkdzTDk4a0E&single=true&gid=1&output=html&widget=true'></iframe>
+		</div>
+	</div>
+	
+	<hr>
+	<hr>
+";
 	
 require_once("footer.php");
 echo"

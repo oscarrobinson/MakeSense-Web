@@ -750,9 +750,10 @@ pre code {
 }
 
 .container {
-  width: auto;
-  max-width: 700px;
-  padding: 0 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .container:before,
@@ -6827,6 +6828,7 @@ td.visible-print {
 }
 
 #wrap {
+  margin: 0 auto;
   min-height: 100%;
   height: auto !important;
   height: 100%;
@@ -7017,6 +7019,7 @@ td.visible-print {
 }
 
 #sensorinfo{
+	text-align:center;
 	margin-left:30px;
 }
 
@@ -7026,4 +7029,9 @@ td.visible-print {
 
 #contactinfo{
 	margin-left:90px;
+}
+
+#spreadsheet{
+width: 100%;
+text-align: center;
 }
