@@ -6866,6 +6866,7 @@ td.visible-print {
     width: 800px; 
     height: 400px; 
     margin-left:350px;
+    margin-bottom:50px;
 }
 #controls{
     width:250px;
@@ -6942,7 +6943,17 @@ td.visible-print {
 	margin-bottom:30px;
 }
 
-.pleasedontfloat { 
+#selectedInfo{
+  min-width:800px;
+  max-width:800px;
+  min-height:216px;
+  background-color:lightgray;
+  margin-left:350px;
+  padding:10px;
+
+}
+
+.clearfix { 
     clear:both;
 }
 

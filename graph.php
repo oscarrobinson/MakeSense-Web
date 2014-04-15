@@ -28,8 +28,16 @@ echo "
 		</div>
 
 	</div>
+
+  <div id='selectedInfo'>
+  <h4>Network Name:</h4><div id='networkNameText'></div><div id='networkNameEdit'></div>
+  <h4>Network Description:</h4>
+  <h4>Sensor Name:</h4>
+  <h4>Sensor Description:</h4>
+
+  </div>
 	
-	<div class='pleasedontfloat'>
+	<div class='clearfix'>
 	</div>
 
   <div id='allControls'>
@@ -182,6 +190,7 @@ echo"
     		str += $( this ).val() + \" \";
         selectedNetwork = str;
     	});
+      
         $.ajax({
             url: 'ontologylist.php',
             type: 'post',
