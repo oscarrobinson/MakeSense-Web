@@ -31,10 +31,11 @@ echo "
 	</div>
 
   <div id='selectedInfo'>
-  <h4>Network Name:</h4><div id='networkNameText'></div><div id='networkNameEdit'></div>
-  <h4>Network Description:</h4>
-  <h4>Sensor Name:</h4>
-  <h4>Sensor Description:</h4>
+  <table>
+  <tr><td><h4>Network Name:</h4></td><td><div id='networkNameText'></div><div id='networkNameEdit'></div></td><td><h4>Network Id:</h4></td><td><div id='networkIdText'></div></td><td><h4>Network Description:</h4></td><td><div id='networkDescriptionText'></td></tr>
+  <tr><td><h4>Ontology Name:</h4></td><td><div id='ontologyNameText'></div></td><td><h4>Ontology Id:</h4></td><td><div id='ontologyIdText'></div></td><td><h4>Ontology Description:</h4></td><td><div id='ontologyDescriptionText'></div></td></tr>
+  <tr><td><h4>Sensor Id:</h4></td><td><div id='sensorIdSelector'></div></td><td><h4>Sensor Name:</h4></td><td><div id='sensorNameText'></div></td><td><h4>Sensor Description:</h4></td><td><div id='sensorDescriptionText'></div></td></tr>
+  </table>
 
   </div>
 	
@@ -156,6 +157,62 @@ echo"
 
     }
 
+    function updateSensorInfo()
+    {
+      var sensorId = [];
+      $('#sensorIdSelector option:selected').each(function(i,selected){
+        sensorId.push($(selected).val());
+      });
+      console.log('SENSOR SELECTED: '+sensorId);
+      $.ajax({
+        url:'sensorinfocontroller.php',
+        type:'post',
+        datatype:'string',
+        data: {requestId: '2', sensorId: sensorId},
+        success:function(data){
+          console.log('DATA RECEIVED: ' + data);
+          var result = eval(data);
+          document.getElementById('sensorNameText').innerHTML = result[0];
+          document.getElementById('sensorDescriptionText').innerHTML = result[1];
+
+        }
+      });
+    }
+
+    $( '#sensorIdSelector' ).change(function () {
+      updateSensorInfo();
+    }).change();
+
+    function loadInfo()
+    {
+      var netId = getNetworkSelected()[0];
+      var ontId = getOntologySelected()[0];
+      var sensorIds = [];
+      $(\"#sensorList option:selected\").each(function(i, selected){ 
+          sensorIds.push($(selected).val());
+        });
+      $.ajax({
+        url:'sensorinfocontroller.php',
+        type: 'post',
+        datatype: 'string',
+        data: {requestId: '1', networkId: netId, ontologyId: ontId, sensorIdList: sensorIds},
+        success:function(data){
+          console.log(data);
+          var result = eval(data);
+          console.log(result);
+          document.getElementById('networkIdText').innerHTML = result[0];
+          document.getElementById('networkNameText').innerHTML = result[1];
+          document.getElementById('networkDescriptionText').innerHTML = result[2];
+          document.getElementById('ontologyIdText').innerHTML = result[3];
+          document.getElementById('ontologyNameText').innerHTML = result[4];
+          document.getElementById('ontologyDescriptionText').innerHTML = result[5];
+          document.getElementById('sensorIdSelector').innerHTML = result[6];
+          updateSensorInfo();
+        }
+      });
+      
+    }
+
     $('#submitNetwork').click(function(e){
       document.getElementById('networkErrorMessages').innerHTML = '';
       console.log('ronkers');
@@ -210,6 +267,7 @@ echo"
                   data: { ontology: ont, network: str},
                   success:function(data){
                       $('#sensorselectlist').html(data);
+                      loadInfo();
                       loadGraph();
                   }
 
@@ -232,6 +290,7 @@ echo"
             data: { ontology: str, network: getNetworkSelected()[0] },
             success:function(data){
                 $('#sensorselectlist').html(data);
+                loadInfo();
                 loadGraph();
             }
         });
@@ -239,6 +298,7 @@ echo"
 
 
 	$( '#sensorselectlist' ).change(function () {
+      loadInfo();
     	loadGraph();
   	}).change();
 </script>

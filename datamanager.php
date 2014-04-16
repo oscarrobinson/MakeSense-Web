@@ -298,5 +298,23 @@ class DataManager
         }
         return;
     }
+
+    public function getNetwork($netId){
+        $stmt = $this->conn->prepare("SELECT * FROM networks WHERE network_id=:networkId");
+        $stmt->execute(array(':networkId' => $netId));
+        return $stmt->fetchAll();
+    }
+
+    public function getOntology($ontId){
+        $stmt = $this->conn->prepare("SELECT * FROM ontologies WHERE ontology_id=:ontologyId");
+        $stmt->execute(array(':ontologyId' => $ontId));
+        return $stmt->fetchAll();
+    }
+
+    public function getSensor($sensorId){
+        $stmt = $this->conn->prepare("SELECT * FROM sensors WHERE sensor_id=:sensor_Id");
+        $stmt->execute(array(':sensor_Id' => $sensorId));
+        return $stmt->fetchAll();
+    }
 }
 ?>
