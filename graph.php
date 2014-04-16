@@ -16,7 +16,8 @@ echo "
 <body>
 
 
-  <div id='wrap'>
+  <div class='container'>
+  
 	<div id='addNetwork'>
 		<div id='networkadd'>
 			<p>Add a network! Give it a name and type in your unique identifier number to link to it</p>
