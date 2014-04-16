@@ -6849,18 +6849,21 @@ td.visible-print {
     width:275px;
     float:left;
     margin-left:50px;
-    background-color:lightgray;
     padding:15px;
-}
+	background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(204,204,204,1) 49%,rgba(211,211,211,1) 51%,rgba(186,184,184,1) 100%);
+	border:1px solid;
+    border-radius:10px;
+	}
 
 #networkAdd{
 	width:100%;	
 	position:center;
 	width:275px;
     margin-left:50px;
-    background-color:lightgray;
     padding:15px;
-}
+	
+	}
+	
 
 
 
@@ -6940,18 +6943,23 @@ td.visible-print {
 	width:275px;
     float:left;
     margin-left:50px;
-    background-color:lightgray;
     padding:15px;
 	margin-bottom:30px;
-}
+	background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(204,204,204,1) 49%,rgba(211,211,211,1) 51%,rgba(186,184,184,1) 100%);
+	border:1px solid;
+    border-radius:10px;
+	}
 
 #selectedInfo{
   min-width:800px;
   max-width:800px;
   min-height:216px;
-  background-color:lightgray;
   margin-left:350px;
   padding:10px;
+  background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(204,204,204,1) 49%,rgba(211,211,211,1) 51%,rgba(186,184,184,1) 100%);
+
+  border:1px solid;
+  border-radius:10px;
 
 }
 
