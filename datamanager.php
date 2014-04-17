@@ -316,5 +316,22 @@ class DataManager
         $stmt->execute(array(':sensor_Id' => $sensorId));
         return $stmt->fetchAll();
     }
+
+    public function setNetworkName($newNetworkName, $networkId){
+        $stmt = $this->conn->prepare("UPDATE networks SET network_name=:netName WHERE network_id=:netId");
+        $stmt->execute(array(':netName' => $newNetworkName, ':netId' => $networkId[0]));
+    }
+    public function setNetworkDescription($newNetworkDescription, $networkId){
+        $stmt = $this->conn->prepare("UPDATE networks SET network_description=:netDesc WHERE network_id=:netId");
+        $stmt->execute(array(':netDesc' => $newNetworkDescription, ':netId' => $networkId[0]));
+    }
+    public function setSensorName($newSensorName, $sensorId){
+        $stmt = $this->conn->prepare("UPDATE sensors SET sensor_name=:sensorName WHERE sensor_id=:sensorId");
+        $stmt->execute(array(':sensorName' => $newSensorName, ':sensorId' => $sensorId));
+    }
+    public function setSensorDescription($newSensorDescription, $sensorId){
+        $stmt = $this->conn->prepare("UPDATE sensors SET sensor_description=:sensorDesc WHERE sensor_id=:sensorId");
+        $stmt->execute(array(':sensorDesc' => $newSensorDescription, ':sensorId' => $sensorId));   
+    }
 }
 ?>

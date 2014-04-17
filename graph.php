@@ -32,19 +32,96 @@ echo "
 
   <div id='selectedInfo'>
   <table>
-  <tr><td><h4>Network Name:</h4></td><td><div id='networkNameText'></div><div id='networkNameEdit'></div></td><td><h4>Network Id:</h4></td><td><div id='networkIdText'></div></td><td><h4>Network Description:</h4></td><td><div id='networkDescriptionText'></td></tr>
+  <tr><td><h4>Network Name:</h4></td><td><div id='networkNameText'></div><div id='networkNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkNameEditModal'>Edit</button></div></td><td><h4>Network Id:</h4></td><td><div id='networkIdText'></div></td><td><h4>Network Description:</h4></td><td><div id='networkDescriptionText'></div><div id='networkDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkDescriptionEditModal'>Edit</button></div></td></tr>
   <tr><td><h4>Ontology Name:</h4></td><td><div id='ontologyNameText'></div></td><td><h4>Ontology Id:</h4></td><td><div id='ontologyIdText'></div></td><td><h4>Ontology Description:</h4></td><td><div id='ontologyDescriptionText'></div></td></tr>
-  <tr><td><h4>Sensor Id:</h4></td><td><div id='sensorIdSelector'></div></td><td><h4>Sensor Name:</h4></td><td><div id='sensorNameText'></div></td><td><h4>Sensor Description:</h4></td><td><div id='sensorDescriptionText'></div></td></tr>
+  <tr><td><h4>Sensor Id:</h4></td><td><div id='sensorIdSelector'></div></td><td><h4>Sensor Name:</h4></td><td><div id='sensorNameText'></div><div id='sensorNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorNameEditModal'>Edit</button></div></td><td><h4>Sensor Description:</h4></td><td><div id='sensorDescriptionText'></div><div id='sensorDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorDescriptionEditModal'>Edit</button></div></td></tr>
   </table>
-
   </div>
+
+  <!-- Modal -->
+<div class='modal fade' id='networkNameEditModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+        <h4 class='modal-title' id='myModalLabel'>Edit Network Name</h4>
+      </div>
+      <div class='modal-body'>
+        <b>Network ID:  </b><div id='currentNetworkIDModal'></div><b>  Current Network Name:  </b><div id='currentNetworkNameModal'></div>
+        <form><b>New Network Name:  </b><br><input type='text' id='newNetworkNameModal'></form>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-primary' id='saveNewNetworkName' >Save and Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class='modal fade' id='networkDescriptionEditModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+        <h4 class='modal-title' id='myModalLabel'>Edit Network Description</h4>
+      </div>
+      <div class='modal-body'>
+        <b>Network ID:  </b><div id='currentNetworkIDDescModal'></div><b>  Current Network Name:  </b><div id='currentNetworkNameDescModal'></div><b>  Current Network Description:  </b><div id='currentNetworkDescriptionDescModal'></div>
+        <form><b>New Network Description:  </b><br><input type='text' id='newNetworkDescriptionModal'></form>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-primary' id='saveNewNetworkDescription'>Save and Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class='modal fade' id='sensorNameEditModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+        <h4 class='modal-title' id='myModalLabel'>Edit Sensor Name</h4>
+      </div>
+      <div class='modal-body'>
+        <b>Sensor ID:  </b><div id='currentSensorIDModal'></div><b>  Current Sensor Name:  </b><div id='currentSensorNameModal'></div><b>  Current Sensor Description:  </b><div id='currentSensorDescriptionModal'></div>
+        <form><b>New Sensor Name:  </b><br><input type='text' id='newSensorNameModal'></form>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-primary' id='saveNewSensorName'>Save and Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal -->
+<div class='modal fade' id='sensorDescriptionEditModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>
+        <h4 class='modal-title' id='myModalLabel'>Edit Sensor Description</h4>
+      </div>
+      <div class='modal-body'>
+        <b>Sensor ID:  </b><div id='currentSensorIDDescModal'></div><b>  Current Sensor Name:  </b><div id='currentSensorNameDescModal'></div><b>  Current Sensor Description:  </b><div id='currentSensorDescriptionDescModal'></div>
+        <form><b>New Sensor Description:  </b><br><input type='text' id='newSensorDescriptionModal'></form>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-primary' id='saveNewSensorDescription'>Save and Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 	
 	<div class='clearfix'>
 	</div>
 
   <div id='allControls'>
 	<div id='networkselect'>
-		Select Network: ".$datamanager->getSelectorNew($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."
+		Select Network: <div id='networkSelector'>".$datamanager->getSelectorNew($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."</div>
 	</div>
   <div id='ontologyselect'>
     Select Sensor Type:
@@ -301,6 +378,103 @@ echo"
       loadInfo();
     	loadGraph();
   	}).change();
+
+
+
+  $('#networkNameEditModal').on('show.bs.modal', function (e) {
+      document.getElementById('currentNetworkIDModal').innerHTML = document.getElementById('networkIdText').innerHTML;
+      document.getElementById('currentNetworkNameModal').innerHTML = document.getElementById('networkNameText').innerHTML;
+  });
+
+  $('#networkDescriptionEditModal').on('show.bs.modal', function (e) {
+      document.getElementById('currentNetworkIDDescModal').innerHTML = document.getElementById('networkIdText').innerHTML;
+      document.getElementById('currentNetworkNameDescModal').innerHTML = document.getElementById('networkNameText').innerHTML;
+      document.getElementById('currentNetworkDescriptionDescModal').innerHTML = document.getElementById('networkDescriptionText').innerHTML;
+  });
+
+  $('#sensorNameEditModal').on('show.bs.modal', function (e) {
+      var sensorId = [];
+      $('#sensorIdSelector option:selected').each(function(i,selected){
+        sensorId.push($(selected).val());
+      });
+      document.getElementById('currentSensorIDModal').innerHTML = sensorId[0];
+      document.getElementById('currentSensorNameModal').innerHTML = document.getElementById('sensorNameText').innerHTML;
+      document.getElementById('currentSensorDescriptionModal').innerHTML = document.getElementById('sensorDescriptionText').innerHTML;
+  });
+
+  $('#sensorDescriptionEditModal').on('show.bs.modal', function (e) {
+      var sensorId = [];
+      $('#sensorIdSelector option:selected').each(function(i,selected){
+        sensorId.push($(selected).val());
+      });
+      document.getElementById('currentSensorIDDescModal').innerHTML = sensorId[0];
+      document.getElementById('currentSensorNameDescModal').innerHTML = document.getElementById('sensorNameText').innerHTML;
+      document.getElementById('currentSensorDescriptionDescModal').innerHTML = document.getElementById('sensorDescriptionText').innerHTML;
+  });
+
+  $('#saveNewNetworkName').click(function(e){
+      var newNetName = document.getElementById('newNetworkNameModal').value;
+      $.ajax({
+          url: 'sensorinfocontroller.php',
+          type: 'post',
+          data: {requestId: 3, newNetName: newNetName, netId: getNetworkSelected()},
+          success:function(data){
+            console.log(data);
+            $('#networkNameEditModal').modal('hide');
+            loadInfo();
+          }
+      });
+  });
+
+  $('#saveNewNetworkDescription').click(function(e){
+      var newNetDesc= document.getElementById('newNetworkDescriptionModal').value;
+      $.ajax({
+          url: 'sensorinfocontroller.php',
+          type: 'post',
+          data: {requestId: 4, newNetDescription: newNetDesc, netId: getNetworkSelected()},
+          success:function(data){
+            console.log(data);
+            $('#networkDescriptionEditModal').modal('hide');
+            loadInfo();
+          }
+      });
+  });
+
+  $('#saveNewSensorName').click(function(e){
+      var newSensorName = document.getElementById('newSensorNameModal').value;
+      var sensorId = [];
+      $('#sensorIdSelector option:selected').each(function(i,selected){
+        sensorId.push($(selected).val());
+      });
+      $.ajax({
+          url: 'sensorinfocontroller.php',
+          type: 'post',
+          data: {requestId: 5, newSensorName: newSensorName, sensorId: sensorId[0]},
+          success:function(data){
+            console.log(data);
+            $('#sensorNameEditModal').modal('hide');
+            loadInfo();
+          }
+      });
+  });
+
+  $('#saveNewSensorDescription').click(function(e){
+      var newSensorDescription = document.getElementById('newSensorDescriptionModal').value;
+      var sensorId = [];
+      $('#sensorIdSelector option:selected').each(function(i,selected){
+        sensorId.push($(selected).val());
+      });
+      $.ajax({
+          url: 'sensorinfocontroller.php',
+          type: 'post',
+          data: {requestId: 6, newSensorDesc: newSensorDescription, sensorId: sensorId[0]},
+          success:function(data){
+            console.log(data);
+            $('#sensorDescriptionEditModal').modal('hide');
+            loadInfo();
+          }
+      });
+  });
 </script>
 
 </div>

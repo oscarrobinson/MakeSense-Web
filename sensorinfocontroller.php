@@ -38,5 +38,30 @@ else if ($requestId == 2){
 	echo json_encode($returnArray);
 }
 
+else if ($requestId == 3){
+	$newNetworkName = $_POST['newNetName'];
+	$networkId = $_POST['netId'];
+	$dataManager->setNetworkName($newNetworkName, $networkId);
+}
+
+else if ($requestId == 4){
+	$newNetworkDescription= $_POST['newNetDescription'];
+	$networkId = $_POST['netId'];
+	$dataManager->setNetworkDescription($newNetworkDescription, $networkId);
+}
+
+else if ($requestId == 5){
+	$sensorId = $_POST['sensorId'];
+	$newSensorName = $_POST['newSensorName'];
+	$dataManager->setSensorName($newSensorName, $sensorId);
+}
+
+else if ($requestId == 6){
+	$sensorId = $_POST['sensorId'];
+	$newSensorDescription = $_POST['newSensorDesc'];
+	$dataManager->setSensorDescription($newSensorDescription, $sensorId);
+
+}
+
 
 ?>
