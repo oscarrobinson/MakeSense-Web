@@ -48,7 +48,7 @@ echo "
       </div>
       <div class='modal-body'>
         <b>Network ID:  </b><div id='currentNetworkIDModal'></div><b>  Current Network Name:  </b><div id='currentNetworkNameModal'></div>
-        <form><b>New Network Name:  </b><br><input type='text' id='newNetworkNameModal'></form>
+        <form><b>New Network Name:  </b><br><input type='text' id='newNetworkNameModal' style='width:300px;'></form>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn btn-primary' id='saveNewNetworkName' >Save and Close</button>
@@ -67,7 +67,7 @@ echo "
       </div>
       <div class='modal-body'>
         <b>Network ID:  </b><div id='currentNetworkIDDescModal'></div><b>  Current Network Name:  </b><div id='currentNetworkNameDescModal'></div><b>  Current Network Description:  </b><div id='currentNetworkDescriptionDescModal'></div>
-        <form><b>New Network Description:  </b><br><input type='text' id='newNetworkDescriptionModal'></form>
+        <form><b>New Network Description:  </b><br><textarea rows='4' cols='50' id='newNetworkDescriptionModal'></textarea></form>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn btn-primary' id='saveNewNetworkDescription'>Save and Close</button>
@@ -86,7 +86,7 @@ echo "
       </div>
       <div class='modal-body'>
         <b>Sensor ID:  </b><div id='currentSensorIDModal'></div><b>  Current Sensor Name:  </b><div id='currentSensorNameModal'></div><b>  Current Sensor Description:  </b><div id='currentSensorDescriptionModal'></div>
-        <form><b>New Sensor Name:  </b><br><input type='text' id='newSensorNameModal'></form>
+        <form><b>New Sensor Name:  </b><br><input type='text' id='newSensorNameModal' style='width:300px;'></form>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn btn-primary' id='saveNewSensorName'>Save and Close</button>
@@ -105,7 +105,7 @@ echo "
       </div>
       <div class='modal-body'>
         <b>Sensor ID:  </b><div id='currentSensorIDDescModal'></div><b>  Current Sensor Name:  </b><div id='currentSensorNameDescModal'></div><b>  Current Sensor Description:  </b><div id='currentSensorDescriptionDescModal'></div>
-        <form><b>New Sensor Description:  </b><br><input type='text' id='newSensorDescriptionModal'></form>
+        <form><b>New Sensor Description:  </b><br><textarea rows='4' cols='50' id='newSensorDescriptionModal'></textarea></form>
       </div>
       <div class='modal-footer'>
         <button type='button' class='btn btn-primary' id='saveNewSensorDescription'>Save and Close</button>
