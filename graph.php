@@ -17,6 +17,14 @@ echo "
 
 
   <div class='container'>
+	
+	<div id='downloaddata'>
+		<a href='dump.php' target='_blank'>Download Data</a>
+	</div>
+	
+	<div class='clearfix'>
+	</div>
+	
   
 	<div id='addNetwork'>
 		<div id='networkadd'>
@@ -158,7 +166,11 @@ echo "
 		echo"
 		</form>
 	</div>
-</div>";
+	
+	
+</div>
+
+";
 require_once("footer.php");
 echo"
 </body>";

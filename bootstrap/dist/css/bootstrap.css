@@ -6943,8 +6943,18 @@ td.visible-print {
     padding:15px;
 	margin-bottom:30px;
 	background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(204,204,204,1) 49%,rgba(211,211,211,1) 51%,rgba(186,184,184,1) 100%);
-	border:1px solid;=
+	border:1px solid;
 	}
+	
+#downloaddata{
+width:275px;
+    float:left;
+    padding:15px;
+	margin-bottom:20px;
+	background: -webkit-linear-gradient(top, rgba(246,248,249,1) 0%,rgba(204,204,204,1) 49%,rgba(211,211,211,1) 51%,rgba(186,184,184,1) 100%);
+	border:1px solid;
+
+}
 
 #selectedInfo{
   min-width:800px;
