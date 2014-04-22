@@ -38,13 +38,62 @@ echo "
 
 	</div>
 
+
   <div id='selectedInfo'>
-  <table>
-  <tr><td><h4>Network Name:</h4></td><td><div id='networkNameText'></div><div id='networkNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkNameEditModal'>Edit</button></div></td><td><h4>Network Id:</h4></td><td><div id='networkIdText'></div></td><td><h4>Network Description:</h4></td><td><div id='networkDescriptionText'></div><div id='networkDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkDescriptionEditModal'>Edit</button></div></td></tr>
-  <tr><td><h4>Ontology Name:</h4></td><td><div id='ontologyNameText'></div></td><td><h4>Ontology Id:</h4></td><td><div id='ontologyIdText'></div></td><td><h4>Ontology Description:</h4></td><td><div id='ontologyDescriptionText'></div></td></tr>
-  <tr><td><h4>Sensor Id:</h4></td><td><div id='sensorIdSelector'></div></td><td><h4>Sensor Name:</h4></td><td><div id='sensorNameText'></div><div id='sensorNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorNameEditModal'>Edit</button></div></td><td><h4>Sensor Description:</h4></td><td><div id='sensorDescriptionText'></div><div id='sensorDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorDescriptionEditModal'>Edit</button></div></td></tr>
-  </table>
+  <div class='panel-group' id='accordion'>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+      <h4 class='panel-title'>
+        <a data-toggle='collapse' data-parent='#accordion' href='#collapseOne'>
+          Network Information
+        </a>
+      </h4>
+    </div>
+    <div id='collapseOne' class='panel-collapse collapse in'>
+      <div class='panel-body'>
+        <table>
+         <tr><td><b>Network Name:</b></td><td><b>Network Id:</b></td><td><b>Network Description:</b></td></tr>
+         <tr><td><div id='networkNameText'></div><div id='networkNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkNameEditModal'>Edit</button></div></td><td><div id='networkIdText'></div></td><td><div id='networkDescriptionText'></div><div id='networkDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkDescriptionEditModal'>Edit</button></div></td></tr>
+        </table>
+      </div>
+    </div>
   </div>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+      <h4 class='panel-title'>
+        <a data-toggle='collapse' data-parent='#accordion' href='#collapseTwo'>
+          Ontology Information
+        </a>
+      </h4>
+    </div>
+    <div id='collapseTwo' class='panel-collapse collapse'>
+      <div class='panel-body'>
+        <table>
+          <tr><td><b>Ontology Name:</b></td><td><b>Ontology Id:</b></td><td><b>Ontology Description:</b></td></tr>
+          <tr><td><div id='ontologyNameText'></div></td><td><div id='ontologyIdText'></div></td><td><div id='ontologyDescriptionText'></div></td></tr>
+        </table>      
+      </div>
+    </div>
+  </div>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+      <h4 class='panel-title'>
+        <a data-toggle='collapse' data-parent='#accordion' href='#collapseThree'>
+          Sensor Information
+        </a>
+      </h4>
+    </div>
+    <div id='collapseThree' class='panel-collapse collapse'>
+      <div class='panel-body'>
+        <table>
+          <tr><td><b>Sensor Id:</b></td><td><b>Sensor Name:</b></td><td><b>Sensor Description:</b></td></tr>
+          <tr><td><div id='sensorIdSelector'></div></td><td><div id='sensorNameText'></div><div id='sensorNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorNameEditModal'>Edit</button></div></td><td><div id='sensorDescriptionText'></div><div id='sensorDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorDescriptionEditModal'>Edit</button></div></td></tr>
+        </table> 
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
   <!-- Modal -->
 <div class='modal fade' id='networkNameEditModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
