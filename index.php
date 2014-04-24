@@ -164,7 +164,7 @@ echo"
         <div class='col-md-7'>
           <h2 class='featurette-heading'>Connect <span class='text-muted'>Your own</span> Networks.</h2>
           <p class='lead'>We've built an API so you can connect your own sensor nodes to our website. Check out our Github page to find out more!</p>
-		  <p><a class='btn btn-default' href='#' role='button'>Find Out More &raquo;</a></p>
+		  <p><a class='btn btn-default' href='https://github.com/scarrobin/MakeSense-Python' role='button'>Find Out More &raquo;</a></p>
         </div>
         <div class='col-md-5'>
           <img class='featurette-image img-responsive' src='img/Icons/book.png' data-src='holder.js/500x500/auto' alt='Generic placeholder image'>
