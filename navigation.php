@@ -28,7 +28,7 @@ echo "
 			
 			echo"
 			<li><a href='blog.php'>Blog</a></li>
-            <li><a href='about.php'>About</a></li>
+            <li><a href='about.php'>COMP2014</a></li>
             <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'>More <b class='caret'></b></a>
             <ul class='dropdown-menu'>
