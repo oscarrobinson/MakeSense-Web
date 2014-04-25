@@ -110,7 +110,17 @@ echo "
 				</div>
 				<div id='collapseFour' class='panel-collapse collapse'>
 					<div class='panel-body'>
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					
+						<h2>Deployment Diagram<h2>
+						<img src='img/Arch_Diagrams/DeploymentDiagram.png' style='max-height:800px;max-width:1100px; margin-bottom:30px;' >	
+						
+						
+						<h2>Current Web App Implementation<h2>
+						<img src='img/Arch_Diagrams/WebAppCurrentImplementation.png' style='max-height:600px;max-width:900px; margin-bottom:30px;' >	
+						
+						<h2>Future Web App Implementation<h2>
+						<img src='img/Arch_Diagrams/WebAppFutureImplementation.png' style='max-height:600px;max-width:900px; margin-bottom:30px;' >	
+						
 					</div>
 				</div>
 			</div>
@@ -232,6 +242,10 @@ echo "
 					<div class='panel-body'>
 						<div class='container'>
 							<h1>Current Web App Implementation</h1>
+							
+							<p><i>For architectural diagrams of the web app, click the '<b>Archiectural Diagrams</b>' tab above</i></p>
+							<br>
+							
 							<p>
 								The current implementation of the web application was designed with the Model View Controller design pattern in mind.  The web app was built in an agile way.  A set of requirements was drawn up and these were implemented in work packages designated to members of the team.
 							</p>
