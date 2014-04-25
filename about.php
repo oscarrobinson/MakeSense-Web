@@ -269,6 +269,21 @@ echo "
 								This structure is much better aligned with the MVC design pattern and would give the web application much improved performance.  The introduction of a dedicated Controller class in PHP would mean new features would be much quicker to implement as any new UI code could be written in the new page then any dynamic content could be easily added by adding additional methods to the Controller class.
 							</p>
 						</div>
+						<div class = 'container'>
+							<h1>Hardware</h1>
+								<h2>Stamps</h2>
+									<p>The networking code to send sensor data between the stamps uses ContikiOS.  ContikiOS acts as a facade to the complicated networking code.  Our code implements the ‘collect’ networking mechanism.  The <a href='https://github.com/andrewgrex/MethHardware/blob/master/examples/OrisenStamp/collectGateway.c'>collectGateway.c</a> code designates the gateway stamp as the collect node, therefore all sensor data sent from nodes running the <a href='https://github.com/andrewgrex/MethHardware/blob/master/examples/OrisenStamp/collectSensor.c'>collectSensor.c</a> code is automatically sent to the gateway node.  The data can hop over other sensor nodes if the gateway node is not in range.  As long as a sensor nodes is in range of a node which has a path to the gateway, data from that node will also reach the gateway.  This makes the system very robust and means networks can be spread out over a large buildings very easily.</p>
+								<h2>Raspberry Pi</h2>
+									<p>The raspberry pi runs the <a href='https://github.com/andrewgrex/MethHardware/blob/master/piGateway.py'>piGateway.py</a> code.  This code reads the Pi’s GPIO serial pins to get the data the collect stamp is receiving.  This data is then fed into the database.  Currently this is done with direct database access.  However, this code could now be refactored to use the MakeSenseDB API, avoiding the need for direct database access from the Pi and therefore avoiding the security risks this involves.</p>
+						</div>
+						<div class = 'container'>
+							<h1>APIs</h1>
+								<h2>MakeSenseDB API</h2>
+									<p>The <a href='https://github.com/scarrobin/MakeSense-Python/blob/master/makesensepy.py'>makesensepy.py</a> module for python allows users to add data from their own sensor networks to the MakeSense system.  The methods act as an Adaptor, hiding the formatting and network request code so the user can simply add data to the system using intuitive methods such as addSensor().</p>
+								<h2>Arduino API</h2>
+									<p>Our Arduino API allows users to create their own sensor node hardware to attach a stamp to.  The code acts as an Adaptor to the code to properly format the data to be sent by the stamp so the user can send their code in an intuitive way.</p>
+									<p><b><i>To See how our code is deployed throughout the system, check out the deployment diagram in the ‘Architectural Diagrams’ section</i></b></p>
+						</div>
 					</div>
 				</div>
 			</div>
