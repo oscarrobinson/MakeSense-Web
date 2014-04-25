@@ -234,14 +234,15 @@ echo "
 				<div class='panel-heading'>
 					<h4 class='panel-title'>
 					<a data-toggle='collapse' data-parent='#accordion' href='#collapseNine'>
-						Web App Design
+						Technical Achievements and Design Patterns
 					</a>
 					</h4>
 				</div>
 				<div id='collapseNine' class='panel-collapse collapse'>
 					<div class='panel-body'>
 						<div class='container'>
-							<h1>Current Web App Implementation</h1>
+							<h1>Web Application</h1>
+							<h2>Current Web App Implementation</h2>
 							
 							<p><i>For architectural diagrams of the web app, click the '<b>Archiectural Diagrams</b>' tab above</i></p>
 							<br>
@@ -257,7 +258,7 @@ echo "
 							</p>
 						</div>
 						<div class='container'>
-							<h1>Future Web App Implementation</h1>
+							<h2>Future Web App Implementation</h2>
 							<p>
 								To improve the web application’s design, all generation of user interface elements should be moved into JavaScript code, this  would allow for better performance and also allow for easier error generation and progress reports to provide more information to the user when the application is slow or errors in retrieving information from the database occur.
 							</p>

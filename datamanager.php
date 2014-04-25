@@ -279,6 +279,8 @@ class DataManager
         }
     }
 
+    //If you are reading this and you're not a developer, you are a very dedicated marker
+
     public function addNetwork($id, $netId, $name, $description){
         if ($name=="" and $description==""){
             $stmt = $this->conn->prepare("INSERT INTO networks(id, network_id) VALUES(:id, :netId)");
