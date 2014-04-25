@@ -28,21 +28,22 @@ echo "
 			
 			echo"
 			<li><a href='blog.php'>Blog</a></li>
-            <li><a href='about.php'>COMP2014</a></li>
+            <li><a href='comp2014.php'>COMP2014</a></li>
             <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'>More <b class='caret'></b></a>
-            <ul class='dropdown-menu'>
-			  
-			<li><a href='http://makesense.boards.net'>Forum </a></li>
-			<li><a href='http://uclteam10.azurewebsites.net/wiki/index.php?title=Main_Page'>Wiki </a></li>
-			<li><a href='contact.php'>Contact</a></li>
-			<li class='divider'></li>
+            <ul class='dropdown-menu'>  
+				<li><a href='manual.php'>How To</a></li>
+				<li><a href='about.php'>About</a></li>
+				<li><a href='contact.php'>Contact</a></li>
+				<li class='divider'></li>
+				<li><a href='http://makesense.boards.net'>Forum </a></li>
+				<li><a href='http://uclteam10.azurewebsites.net/wiki/index.php?title=Main_Page'>Wiki </a></li>
+				<li class='divider'></li>
 				";
-			  
+
 			if(isUserLoggedIn()){
 				echo"  
-                <li><a href='user_settings.php'>User Settings</a></li>
-				<li><a href='#'>Graph Settings</a></li>";
+                <li><a href='user_settings.php'>User Settings</a></li>";
 			}
 
 			echo"
