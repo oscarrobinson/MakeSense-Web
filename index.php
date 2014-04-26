@@ -49,7 +49,7 @@ echo"
 		</ol>
 		<div class='carousel-inner'>
 			<div class='item active'>
-				<img src='img/makesense.png' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:First slide' alt='First slide'>
+				<img src='img/makesense1.png' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:First slide' alt='First slide'>
 				<div class='container'>
 				<div class='backdrop'>
 					<div class='carousel-caption'>
