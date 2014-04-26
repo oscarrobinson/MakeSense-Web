@@ -402,6 +402,7 @@ p {
   font-size: 16.099999999999998px;
   font-weight: 200;
   line-height: 1.4;
+  
 }
 
 @media (min-width: 768px) {
@@ -1112,6 +1113,7 @@ pre code {
   }
   .col-md-7 {
     width: 58.333333333333336%;
+	margin-top:-115px;
   }
   .col-md-8 {
     width: 66.66666666666666%;

@@ -139,7 +139,7 @@ echo"
       <div class='row featurette'>
         <div class='col-md-7'>
           <h2 class='featurette-heading'><span class='text-muted'>Real Time</span> Graphical Data Viewing.</h2>
-          <p class='lead'>You can view the readings ofseveral sensors concurrently in real time using the MakeSense web service. Sign up and connect to see data appearing instantaneously from you sensor network. The best part? You can connect as many sensor nodes to as many networks as you like. </p>
+          <p class='lead'>You can view the readings of several sensors concurrently in real time using the MakeSense web service. Sign up and connect to see data appearing instantaneously from you sensor network. The best part? You can connect as many sensor nodes to as many networks as you like. </p>
         </div>
         <div class='col-md-5'>
           <img class='featurette-image img-responsive' src='img/graph1.png' data-src='holder.js/500x500/auto' alt='Generic placeholder image'>
@@ -169,7 +169,7 @@ echo"
 		  <p><a class='btn btn-default' href='https://github.com/scarrobin/MakeSense-Python' role='button'>Find Out More &raquo;</a></p>
         </div>
         <div class='col-md-5'>
-          <img class='featurette-image img-responsive' src='img/Icons/book.png' data-src='holder.js/500x500/auto' alt='Generic placeholder image'>
+          <img class='featurette-image img-responsive' src='img/Icons/book.png' data-src='holder.js/500x500/auto' alt='Generic placeholder image' style='max-height:300px;max-width:300px'>
         </div>
       </div>
 
