@@ -39,7 +39,7 @@ echo"
 
     <!-- Carousel
     ================================================== -->
-    <div id='wrap'>
+  
 	<div id='myCarousel' class='carousel slide'>
 		<!-- Indicators -->
 		<ol class='carousel-indicators'>
@@ -51,9 +51,10 @@ echo"
 			<div class='item active'>
 				<img src='img/makesense.png' data-src='holder.js/100%x500/auto/#777:#7a7a7a/text:First slide' alt='First slide'>
 				<div class='container'>
+				<div class='backdrop'>
 					<div class='carousel-caption'>
 						<h1>Who are we?</h1>
-						<p>We are MakeSense. We build customisable sensor networks for environmental monitoring purposes. Our sensor networks are completely customisable, and the data is stored in the MakeSense Cloud, where it is available for viewing, manage or to download.</p>
+							<p>We are MakeSense. We build customisable sensor networks for environmental monitoring purposes. Our sensor networks are completely customisable, and the data is stored in the MakeSense Cloud, where it is available for viewing, management purposes or to download.</p>
 						
 						";
 							if(!isUserLoggedIn()){
@@ -62,6 +63,7 @@ echo"
 							}
 							echo"
 					</div>
+				</div>
 				</div>
 			</div>
 			<div class='item'>
@@ -100,7 +102,7 @@ echo"
 		<a class='left carousel-control' href='#myCarousel' data-slide='prev'><span class='glyphicon glyphicon-chevron-left'></span></a>
       <a class='right carousel-control' href='#myCarousel' data-slide='next'><span class='glyphicon glyphicon-chevron-right'></span></a>
 	</div><!-- /.carousel -->
-</div>
+
 
 
 
