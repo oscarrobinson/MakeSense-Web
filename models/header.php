@@ -17,7 +17,6 @@ if (stripos($_SERVER['REQUEST_URI'], 'contact.php')){
 }
 
 echo"
-<link href='bootstrap/examples/carousel/carousel.css' rel='stylesheet'>
 <link rel='shortcut icon' href='bootstrap/assets/ico/favicon.png'>
 <link href='http://fonts.googleapis.com/css?family=Chivo:400,900' rel='stylesheet' type='text/css'>
 <script src='models/funcs.js' type='text/javascript'></script>
