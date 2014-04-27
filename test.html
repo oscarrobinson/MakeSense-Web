@@ -1,4 +1,9 @@
 <?php
+/*
+UserCake Version: 2.0.2
+http://usercake.com
+*/
+
 require_once("models/config.php");
 if (!securePage($_SERVER['PHP_SELF'])){die();}
 require_once("models/header.php");
@@ -8,74 +13,47 @@ $datamanager = new DataManager();
 //Links for permission level 2 (default admin)
 if (!($loggedInUser->checkPermission(array(2)))){
 echo "
-
 <body>
+
+
+
+
 	<div class='content'>
 		<div class='background block_1'>
-			<div id = 'testcenter'>
-				
-				<div id='graph'>
+			
+			<div id='allControls'>
+				<div id='networkselect'>
+					Select Network: <div id='networkSelector'>".$datamanager->getSelectorNew($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."</div>
 				</div>
-				
-				
-				<div id='selectedInfo'>
-					<div class='panel-group' id='accordion'>
-						<div class='panel panel-default'>
-							<div class='panel-heading'>
-								<h4 class='panel-title'>
-								<a data-toggle='collapse' data-parent='#accordion' href='#collapseOne'>
-									Network Information
-								</a>
-								</h4>
-							</div>
-							<div id='collapseOne' class='panel-collapse collapse in'>
-								<div class='panel-body'>
-									<table>
-										<tr><td><b>Network Name:</b></td><td><b>Network Id:</b></td><td><b>Network Description:</b></td></tr>
-										<tr><td><div id='networkNameText'></div><div id='networkNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkNameEditModal'>Edit</button></div></td><td><div id='networkIdText'></div></td><td><div id='networkDescriptionText'></div><div id='networkDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkDescriptionEditModal'>Edit</button></div></td></tr>
-									</table>
-								</div>
-							</div>
-						</div>
-						
-						<div class='panel panel-default'>
-							<div class='panel-heading'>
-								<h4 class='panel-title'>
-									<a data-toggle='collapse' data-parent='#accordion' href='#collapseTwo'>
-										Ontology Information
-									</a>
-								</h4>
-							</div>
-							<div id='collapseTwo' class='panel-collapse collapse'>
-								<div class='panel-body'>
-									<table>
-										<tr><td><b>Ontology Name:</b></td><td><b>Ontology Id:</b></td><td><b>Ontology Description:</b></td></tr>
-										<tr><td><div id='ontologyNameText'></div></td><td><div id='ontologyIdText'></div></td><td><div id='ontologyDescriptionText'></div></td></tr>
-									</table>      
-								</div>
-							</div>
-						</div>
-						<div class='panel panel-default'>
-							<div class='panel-heading'>
-								<h4 class='panel-title'>
-									<a data-toggle='collapse' data-parent='#accordion' href='#collapseThree'>
-										Sensor Information
-									</a>
-								</h4>
-							</div>
-							<div id='collapseThree' class='panel-collapse collapse'>
-								<div class='panel-body'>
-									<table>
-										<tr><td><b>Sensor Id:</b></td><td><b>Sensor Name:</b></td><td><b>Sensor Description:</b></td></tr>
-										<tr><td><div id='sensorIdSelector'></div></td><td><div id='sensorNameText'></div><div id='sensorNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorNameEditModal'>Edit</button></div></td><td><div id='sensorDescriptionText'></div><div id='sensorDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorDescriptionEditModal'>Edit</button></div></td></tr>
-									</table> 
-								</div>
-							</div>
-						</div>
-					</div>
+			<div id='ontologyselect'>
+				Select Sensor Type:
+				<div id='ontologyselectlist'>
 				</div>
+			</div>
+			<div id='sensorselect'>
+				Select Sensor:
+				<div id='sensorselectlist'>
+				</div>
+			</div>";
+				if (!($loggedInUser->checkPermission(array(2)))){
+				echo "
+			<div id='controls'>
+				<div id='autoUpdate'>
+					<form>
+						<input type='checkbox' id='isAutoUpdateOn''>Auto Update</input>
+					</form>
+				</div>
+				<div id='refreshButton'><button type='button'>Refresh Graph</button>
+				</div>
+			</div>
+		</div>
 
-				  <!-- Modal -->
+		<div id='graph'>
+		</div>
+			
+			
+			
+		  <!-- Modal -->
 				<div class='modal fade' id='networkNameEditModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
 					<div class='modal-dialog'>
 						<div class='modal-content'>
@@ -149,47 +127,19 @@ echo "
 							</div>
 						</div>
 					</div>
-				</div>
-				
-				
-				
-			</div>	
-		</div>
+				</div>	
+			
+	</div>
 		<div class='left_block block_1'>
 			<div class='content'>
 			
-				<div id='allControls'>
-					<div id='networkselect'>
-						Select Network: <div id='networkSelector'>".$datamanager->getSelectorNew($datamanager->getNetworksForAccount($loggedInUser->user_id),FALSE,"networkList")."</div>
-					</div>
-					<div id='ontologyselect'>
-						Select Sensor Type:
-						<div id='ontologyselectlist'>
-						</div>
-					</div>
-					<div id='sensorselect'>
-						Select Sensor:
-						<div id='sensorselectlist'>
-						</div>
-					</div>
-					<div id='controls'>
-						<div id='autoUpdate'>
-							<form>
-								<input type='checkbox' id='isAutoUpdateOn''>Auto Update</input>
-							</form>
-						</div>
-						<div id='refreshButton'><button type='button'>Refresh Graph</button>
-						</div>
-					</div>
-				</div>
-		
-		
 		
 				<div id='downloaddata'>
 					<a href='dump.php' target='_blank'>Download Data</a>
 				</div>
 				
-				
+				<div class='clearfix'>
+				</div>
 				
 			  
 				<div id='addNetwork'>
@@ -202,16 +152,73 @@ echo "
 						<div id='networkErrorMessages' style='color:red'></div>
 					</div>
 				</div>
-				
-				
-				
-				
-				
 
-	
+
+				<div id='selectedInfo'>
+					<div class='panel-group' id='accordion'>
+						<div class='panel panel-default'>
+							<div class='panel-heading'>
+								<h4 class='panel-title'>
+								<a data-toggle='collapse' data-parent='#accordion' href='#collapseOne'>
+									Network Information
+								</a>
+								</h4>
+							</div>
+							<div id='collapseOne' class='panel-collapse collapse in'>
+								<div class='panel-body'>
+									<table>
+										<tr><td><b>Network Name:</b></td><td><b>Network Id:</b></td><td><b>Network Description:</b></td></tr>
+										<tr><td><div id='networkNameText'></div><div id='networkNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkNameEditModal'>Edit</button></div></td><td><div id='networkIdText'></div></td><td><div id='networkDescriptionText'></div><div id='networkDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#networkDescriptionEditModal'>Edit</button></div></td></tr>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class='panel panel-default'>
+							<div class='panel-heading'>
+								<h4 class='panel-title'>
+									<a data-toggle='collapse' data-parent='#accordion' href='#collapseTwo'>
+										Ontology Information
+									</a>
+								</h4>
+							</div>
+							<div id='collapseTwo' class='panel-collapse collapse'>
+								<div class='panel-body'>
+									<table>
+										<tr><td><b>Ontology Name:</b></td><td><b>Ontology Id:</b></td><td><b>Ontology Description:</b></td></tr>
+										<tr><td><div id='ontologyNameText'></div></td><td><div id='ontologyIdText'></div></td><td><div id='ontologyDescriptionText'></div></td></tr>
+									</table>      
+								</div>
+							</div>
+						</div>
+						<div class='panel panel-default'>
+							<div class='panel-heading'>
+								<h4 class='panel-title'>
+									<a data-toggle='collapse' data-parent='#accordion' href='#collapseThree'>
+										Sensor Information
+									</a>
+								</h4>
+							</div>
+							<div id='collapseThree' class='panel-collapse collapse'>
+								<div class='panel-body'>
+									<table>
+										<tr><td><b>Sensor Id:</b></td><td><b>Sensor Name:</b></td><td><b>Sensor Description:</b></td></tr>
+										<tr><td><div id='sensorIdSelector'></div></td><td><div id='sensorNameText'></div><div id='sensorNameEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorNameEditModal'>Edit</button></div></td><td><div id='sensorDescriptionText'></div><div id='sensorDescriptionEdit'><button type='button' class='btn btn-default' data-toggle='modal' data-target='#sensorDescriptionEditModal'>Edit</button></div></td></tr>
+									</table> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
 			</div>
 		</div>
 	</div>
+
+";
+		}		
+		echo"
+		</form>
+
 
 ";
 require_once("footer.php");
@@ -532,8 +539,11 @@ echo"
   });
 </script>
 
+</div>
+</div>
 </body>
 </html>";
 }
 
 ?>
+
