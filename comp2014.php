@@ -116,7 +116,7 @@ echo "
 							<p><a class='btn btn-default' href='https://github.com/scarrobin/MakeSense-Python' role='button'>Find Out More &raquo;</a></p>
 							<h2>Build your own sensor nodes</h2>
 							<p>Use this API to build your own custom sensor nodes with Arduino's. Click the Find out More button and have a look through the 'README'</p>
-							<p><a class='btn btn-default' href='#' role='button'>Find Out More &raquo;</a></p>
+							<p><a class='btn btn-default' href='https://github.com/jay-shah/MakeSense-Arduino' role='button'>Find Out More &raquo;</a></p>
 						</div>
 					</div>
 				</div>
