@@ -27,6 +27,7 @@ echo "
 			}
 			
 			echo"
+			<li><a href='about.php'>About</a></li>
 			<li><a href='blog.php'>Blog</a></li>
             <li><a href='comp2014.php'>COMP2014</a></li>
             <li class='dropdown'>
@@ -37,7 +38,7 @@ echo "
 				<li><a href='contact.php'>Contact</a></li>
 				<li class='divider'></li>
 				<li><a href='http://makesense.boards.net'>Forum </a></li>
-				<li><a href='http://uclteam10.azurewebsites.net/wiki/index.php?title=Main_Page'>Wiki </a></li>
+				<li><a href='/wiki/index.php?title=Main_Page'>Wiki </a></li>
 				<li class='divider'></li>
 				";
 
