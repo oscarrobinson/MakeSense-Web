@@ -6,6 +6,16 @@ require_once("models/header.php");
 if(!isUserLoggedIn()){
 	require_once("loginnav.php");
 }
+
+function echoActiveClassIfRequestMatches($requestUri)
+{
+    $current_file_name = basename($_SERVER['REQUEST_URI'], ".php");
+
+    if ($current_file_name == $requestUri){
+        return "class='active'";
+     }
+}
+
 echo "
 <body>
 <div class='navbar navbar-inverse navbar-fixed-top'>
@@ -20,20 +30,20 @@ echo "
         </div>
         <div class='navbar-collapse collapse'>
           <ul class='nav navbar-nav'>
-            <li class='active'><a href='index.php'>Home</a></li>";
+            <li ".echoActiveClassIfRequestMatches('index')."><a href='index.php'>Home</a></li>";
 			if(isUserLoggedIn()){
 				echo"
-				<li><a href='graph.php'>Graphs</a></li>";
+				<li ".echoActiveClassIfRequestMatches('graph')."><a href='graph.php'>Graphs</a></li>";
 			}
 			
 			echo"
-			<li><a href='about.php'>About</a></li>
-			<li><a href='blog.php'>Blog</a></li>
-            <li><a href='comp2014.php'>COMP2014</a></li>
+			<li ".echoActiveClassIfRequestMatches('about')."><a href='about.php'>About</a></li>
+			<li ".echoActiveClassIfRequestMatches('blog')."><a href='blog.php'>Blog</a></li>
+            <li ".echoActiveClassIfRequestMatches('comp2014')."><a href='comp2014.php'>COMP2014</a></li>
             <li class='dropdown'>
             <a href='#' class='dropdown-toggle' data-toggle='dropdown'>More <b class='caret'></b></a>
             <ul class='dropdown-menu'>  
-				<li><a href='manual.php'>How To</a></li>
+				<li ><a href='manual.php'>How To</a></li>
 				<li><a href='about.php'>About</a></li>
 				<li><a href='contact.php'>Contact</a></li>
 				<li class='divider'></li>
@@ -96,6 +106,7 @@ echo "
     </div>
 	
 </body>
+
 </html>";
 
 
