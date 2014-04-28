@@ -53,6 +53,12 @@ echo "
 									src='http://www.youtube.com/v/TMhPiHF3Qzg'
 									type='application/x-shockwave-flash'>
 								</embed>
+								<h1>MakeSense In Action</h1>
+								<embed
+									width='600dp' height='450dp'
+									src='https://www.youtube.com/v/pVLEOGOHGXI'
+									type='application/x-shockwave-flash'>
+								</embed>
 							</div>
 						</div>
 					</div>
