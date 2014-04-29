@@ -50,19 +50,23 @@ echo "
 				<div id='collapseTwo' class='panel-collapse collapse'>
 					<div class='panel-body'>
 						<div class='container'>
-							<div id='makesensevideo'>
-								<h1>What is MakeSense?</h1>
+							<div id='makesensevideo' style='min-width:1200px;'>
+								<div id='vid1' style='float:left; width:500dp;'>
+								<h3>What is MakeSense?</h3>
 								<embed
-									width='600dp' height='450dp'
+									width='500dp' height='350dp'
 									src='http://www.youtube.com/v/TMhPiHF3Qzg'
 									type='application/x-shockwave-flash'>
 								</embed>
-								<h1>MakeSense In Action</h1>
+								</div>
+								<div id='vid2' style='float:right; width:500dp;'>
+								<h3>MakeSense In Action</h3>
 								<embed
-									width='600dp' height='450dp'
+									width='500dp' height='350dp'
 									src='https://www.youtube.com/v/pVLEOGOHGXI'
 									type='application/x-shockwave-flash'>
 								</embed>
+								</div>
 							</div>
 						</div>
 					</div>
