@@ -78,8 +78,25 @@ echo "
 					</h4>
 				</div>
 				<div id='collapseThree' class='panel-collapse collapse'>
-					<div class='panel-body'>
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					<div class='panel-body' style='margin-left:60px;'>
+						<p>We aimed to keep our development schedule to the Gantt Chart below:</p>
+						<img src='/img/gantt.png'>
+						<br></br>
+						<p>However, some of these work packages took longer than expected due to numerous issues and bugs.</p>
+						<br>
+						<p><b>Forks in prototypes</b></p>
+						<p>The intial plan was to implement ContikiOS’s mesh networking protocol in the sensor networks.  However, we encountered a bug in the ContikiOS framework that meant this protocol did not work on the hardware we were working.  Hence, we shifted the network to using the Collect mechanism which, in fact, turned out to be more suitable for our system.</p>
+						<br>
+						<p><b>Iterations</b></p>
+						<p>We developed the web application using an agile development module, it therefore underwent numerous iterations on the path to the final product.  The main milestones were as follows:</p>
+							<ol>
+							<li>Creation of user accounts system with UserCake</li>
+							<li>Development of proper database structure</li>
+							<li>Sensor network and individual sensor selection for graph</li>
+							<li>Viewing and editing of sensor information</li>
+							</ol>
+						<p>The design of the web app meant these features were easily implemented as the web app had been developed with the accommodation of these features in mind from the beginning thanks to our requirements gathering process.</p>
+
 					</div>
 				</div>
 			</div>
