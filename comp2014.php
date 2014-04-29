@@ -541,6 +541,45 @@ echo "
 	
 	
 	</div>
+
+	<div class='panel panel-default'>
+				<div class='panel-heading'>
+					<h4 class='panel-title'>
+					<a data-toggle='collapse' data-parent='#accordion' href='#collapseFifteen'>
+						All Code Repositories
+					</a>
+					</h4>
+				</div>
+				<div id='collapseFifteen' class='panel-collapse collapse'>
+					<div class='panel-body'>
+							<div class='container'>
+								<p><b>Web Application</b></p>
+								<p><a class='btn btn-default' href='https://github.com/scarrobin/meth-web-app' role='button'>Go</a></p>
+								<br>
+								<p><b>Hardware Code</b></p>
+								<p>This repository includes the gateway code for the Pi as well as our code for the stamps.
+								<p>There is also a large amount of code for the ContikiOS platform, hence the links are for the relevant parts of the hardware code</p>
+								<p><a class='btn btn-default' href='https://github.com/andrewgrex/MethHardware/blob/master/piGateway.py' role='button'>Pi Gateway Code</a></p>
+								<p><a class='btn btn-default' href='https://github.com/andrewgrex/MethHardware/blob/master/examples/OrisenStamp/collectGateway.c' role='button'>Stamp Gateway Code</a></p>
+								<p><a class='btn btn-default' href='https://github.com/andrewgrex/MethHardware/blob/master/examples/OrisenStamp/collectSensor.c' role='button'>Stamp Sensor Code</a></p>
+								<p><a class='btn btn-default' href='https://github.com/andrewgrex/MethHardware/blob/master/Engduino%20Code/EngduinoSerial1Test.ino' role='button'>EngduinoCode</a></p>
+								<br>
+								<p><b>Python API</b></p>
+								<p><a class='btn btn-default' href='https://github.com/scarrobin/MakeSense-Python' role='button'>Go</a></p>
+								<br>
+								<p><b>Arduino API</b></p>
+								<p><a class='btn btn-default' href='https://github.com/jay-shah/MakeSense-Arduino' role='button'>Go</a></p>
+
+								
+							</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	
+	
+	</div>
 ";
 	
 require_once("footer.php");
