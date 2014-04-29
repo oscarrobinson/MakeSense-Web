@@ -30,6 +30,10 @@ echo "
 						<div class='container'>
 							<p>To find out what MakeSense is, click the link below!</p>
 							<p><a class='btn btn-default' href='about.php' role='button'>Tell me more! &raquo;</a></p>
+							<br>
+							<p>To have a look at the web application's features for yourself, login to our demonstration account:</p>
+							<p><b>Username: </b>demo</p>
+							<p><b>Password: </b>comp2014</p>
 						</div>
 					</div>
 				</div>
@@ -207,8 +211,103 @@ echo "
 					</h4>
 				</div>
 				<div id='collapseEight' class='panel-collapse collapse'>
-					<div class='panel-body'>
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					<div class='panel-body' style='padding-left:60px;'>
+					<b>Testing Strategy</b>
+					<p>Our testing strategy focused on testing the robustness of the hardware.  We continuously tested the hardware during development, leaving the network running for 1-2 hours at a time.  Our final test was running the sensor network under the following conditions:</p>
+							<ul>
+							<li>One network with two sensor nodes</li>
+							<li>One sensor node out of range of gateway so its data hops over the second node</li>
+							<li>Each sensor node sending a light sensor reading every 2 seconds</li>
+							<li>Therefore gateway processing 1 reading per second</li>
+							<li>Add network to web application using method described in manual</li>
+							<li>Web application accessed every hour to test rendering of graph with live data from the network</li>
+							</ul>
+
+					<p>As well as testing the hardware, this test was also used to test how our web application coped with large volumes of data.  Every hour, the graph for one of the sensor nodes was loaded to ensure data was being efficiently displayed to the user.</p>
+
+					<b>Results</b>
+					<p>The hardware successfully ran without any issues being identified.  However, during the test, the sensor nodes remained plugged into USB ports as we wanted to test the data performance of the system rather than the battery life of the sensor nodes.  We frequently ran into the problem during less formal testing where the Engduino would run out of power.  It is clear that power management will be a significant focus in later development of the system.</p>
+					<p>The gateway uploaded all the sensor data it received to the database without any data points becoming corrupted or lost.  However, the volume of data present in the database started to cause some problems in the web application.  After 4-5 hours of operation the number of data points being loaded onto the graph for each sensor caused significant slowdown in page load times as shown in the following table:</p>
+					<table id='testing-table'>
+						  <tr>
+						    <th>Time system running for/hours</th>
+						    <th>No. of data points in data table(approx)</th>
+						    <th>Graph load time/s</th>
+						  </tr>
+						  <tr>
+						    <td>0</td>
+						    <td>0</td>
+						    <td>0.12</td>
+						  </tr>
+						  <tr>
+						    <td>1</td>
+						    <td>3600</td>
+						    <td>0.56</td>
+						  </tr>
+						  <tr>
+						    <td>2</td>
+						    <td>7200</td>
+						    <td>1.02</td>
+						  </tr>
+						  <tr>
+						    <td>3</td>
+						    <td>10800</td>
+						    <td>2.20</td>
+						  </tr>
+						  <tr>
+						    <td>4</td>
+						    <td>14400</td>
+						    <td>4.99</td>
+						  </tr>
+						  <tr>
+						    <td>5</td>
+						    <td>18000</td>
+						    <td>5.12</td>
+						  </tr>
+						  <tr>
+						    <td>6</td>
+						    <td>21600</td>
+						    <td>7.43</td>
+						  </tr>
+						  <tr>
+						    <td>7</td>
+						    <td>25200</td>
+						    <td>28800</td>
+						  </tr>
+						  <tr>
+						    <td>8</td>
+						    <td>28800</td>
+						    <td>9.16</td>
+						  </tr>
+						  <tr>
+						    <td>9</td>
+						    <td>32400</td>
+						    <td>12.16</td>
+						  </tr>
+						  <tr>
+						    <td>10</td>
+						    <td>36000</td>
+						    <td>12.70</td>
+						  </tr>
+						  <tr>
+						    <td>11</td>
+						    <td>39600</td>
+						    <td>12.90</td>
+						  </tr>
+						  <tr>
+						    <td>12</td>
+						    <td>43200</td>
+						    <td>16.21</td>
+						  </tr>
+						</table>
+						<br>
+						<p>It became clear from our testing that there were two fundamental flaws in the structure of our system:</p>
+
+						<p>1. The storage of sensor data in an SQL database - An SQL database is simply not suited to such large volumes of data coming in at such high frequency</p>
+
+						<p>2. The current method of rendering all the data for a sensor at once on the Highcharts graph - the time taken to create and render a graph with this volume of data makes loading times for graphs too long</p>
+
+						<p>This testing therefore proved invaluable in guiding plans for future development of the system and highlighted some of the flaws in the design of our system</p>
 					</div>
 				</div>
 			</div>
@@ -282,8 +381,30 @@ echo "
 					</h4>
 				</div>
 				<div id='collapseTen' class='panel-collapse collapse'>
-					<div class='panel-body'>
-						Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					<div class='panel-body' style='margin-left:60px;'>
+						We evaluated the usability of our hardware and web application platforms using the set of Heurstics set out below (Nielson, 1995)
+						<p><b>1.	Visibility of system status</b><p>
+						<p>- The system should always keep users informed about what is going on, through appropriate feedback within reasonable time.</p>
+						<p><b>2.	Match between system and the real world</b></p>
+						<p>- The system should speak the users' language, with words, phrases and concepts familiar to the user, rather than system-oriented terms. Follow real-world conventions, making information appear in a natural and logical order. </p>
+						<p><b>3.	User control and freedom</b></p>
+						<p>- Users often choose system functions by mistake and will need a clearly marked 'emergency exit' to leave the unwanted state without having to go through an extended dialogue. Support undo and redo.</p>
+						<p><b>4.	Consistency and standards</b></p>
+						<p>- Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform conventions.</p>
+						<p><b>5.	Error prevention</b></p>
+						<p>- Even better than good error messages is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action.</p>
+						<p><b>6.	Recognition rather than recall</b></p>
+						<p>- Minimize the user's memory load by making objects, actions, and options visible. The user should not have to remember information from one part of the dialogue to another. Instructions for use of the system should be visible or easily retrievable whenever appropriate.</p>
+						<p><b>7.	Flexibility and efficiency of use</b></p>
+						<p>- Accelerators -- unseen by the novice user -- may often speed up the interaction for the expert user such that the system can cater to both inexperienced and experienced users. Allow users to tailor frequent actions.</p>
+						<p><b>8.	Aesthetic and minimalist design</b></p>
+						<p>- Dialogues should not contain information which is irrelevant or rarely needed. Every extra unit of information in a dialogue competes with the relevant units of information and diminishes their relative visibility. </p>
+						<p><b>9.	Help users recognize, diagnose, and recover from errors</b></p>
+						<p>- Error messages should be expressed in plain language (no codes), precisely indicate the problem, and constructively suggest a solution.</p>
+						<p><b>10.	Help and documentation</b></p>
+						<p>- Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large.</p>
+						<br>
+						<iframe style='width:1000px; height:700px;' src='https://docs.google.com/spreadsheets/d/1GNIGDFhjoIjT2tkl4jZpJYkzQr2pKQct-baYn727eMU/pubhtml?widget=true&amp;headers=false'></iframe>
 					</div>
 				</div>
 			</div>
