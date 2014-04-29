@@ -247,74 +247,74 @@ echo "
 					<p>The gateway uploaded all the sensor data it received to the database without any data points becoming corrupted or lost.  However, the volume of data present in the database started to cause some problems in the web application.  After 4-5 hours of operation the number of data points being loaded onto the graph for each sensor caused significant slowdown in page load times as shown in the following table:</p>
 					<table id='testing-table'>
 						  <tr>
-						    <th>Time system running for/hours</th>
-						    <th>No. of data points in data table(approx)</th>
-						    <th>Graph load time/s</th>
+						    <th class='result-table-elem'>Time system running for/hours</th>
+						    <th class='result-table-elem'>No. of data points in data table(approx)</th>
+						    <th class='result-table-elem'>Graph load time/s</th>
 						  </tr>
 						  <tr>
-						    <td>0</td>
-						    <td>0</td>
-						    <td>0.12</td>
+						    <td class='result-table-elem'>0</td>
+						    <td class='result-table-elem'>0</td>
+						    <td class='result-table-elem'>0.12</td>
 						  </tr>
 						  <tr>
-						    <td>1</td>
-						    <td>3600</td>
-						    <td>0.56</td>
+						    <td class='result-table-elem'>1</td>
+						    <td class='result-table-elem'>3600</td>
+						    <td class='result-table-elem'>0.56</td>
 						  </tr>
 						  <tr>
-						    <td>2</td>
-						    <td>7200</td>
-						    <td>1.02</td>
+						    <td class='result-table-elem'>2</td>
+						    <td class='result-table-elem'>7200</td>
+						    <td class='result-table-elem'>1.02</td>
 						  </tr>
 						  <tr>
-						    <td>3</td>
-						    <td>10800</td>
-						    <td>2.20</td>
+						    <td class='result-table-elem'>3</td>
+						    <td class='result-table-elem'>10800</td>
+						    <td class='result-table-elem'>2.20</td>
 						  </tr>
 						  <tr>
-						    <td>4</td>
-						    <td>14400</td>
-						    <td>4.99</td>
+						    <td class='result-table-elem'>4</td>
+						    <td class='result-table-elem'>14400</td>
+						    <td class='result-table-elem'>4.99</td>
 						  </tr>
 						  <tr>
-						    <td>5</td>
-						    <td>18000</td>
-						    <td>5.12</td>
+						    <td class='result-table-elem'>5</td>
+						    <td class='result-table-elem'>18000</td>
+						    <td class='result-table-elem'>5.12</td>
 						  </tr>
 						  <tr>
-						    <td>6</td>
-						    <td>21600</td>
-						    <td>7.43</td>
+						    <td class='result-table-elem'>6</td>
+						    <td class='result-table-elem'>21600</td>
+						    <td class='result-table-elem'>7.43</td>
 						  </tr>
 						  <tr>
-						    <td>7</td>
-						    <td>25200</td>
-						    <td>28800</td>
+						    <td class='result-table-elem'>7</td>
+						    <td class='result-table-elem'>25200</td>
+						    <td class='result-table-elem'>28800</td>
 						  </tr>
 						  <tr>
-						    <td>8</td>
-						    <td>28800</td>
-						    <td>9.16</td>
+						    <td class='result-table-elem'>8</td>
+						    <td class='result-table-elem'>28800</td>
+						    <td class='result-table-elem'>9.16</td>
 						  </tr>
 						  <tr>
-						    <td>9</td>
-						    <td>32400</td>
-						    <td>12.16</td>
+						    <td class='result-table-elem'>9</td>
+						    <td class='result-table-elem'>32400</td>
+						    <td class='result-table-elem'>12.16</td>
 						  </tr>
 						  <tr>
-						    <td>10</td>
-						    <td>36000</td>
-						    <td>12.70</td>
+						    <td class='result-table-elem'>10</td>
+						    <td class='result-table-elem'>36000</td>
+						    <td class='result-table-elem'>12.70</td>
 						  </tr>
 						  <tr>
-						    <td>11</td>
-						    <td>39600</td>
-						    <td>12.90</td>
+						    <td class='result-table-elem'>11</td>
+						    <td class='result-table-elem'>39600</td>
+						    <td class='result-table-elem'>12.90</td>
 						  </tr>
 						  <tr>
-						    <td>12</td>
-						    <td>43200</td>
-						    <td>16.21</td>
+						    <td class='result-table-elem'>12</td>
+						    <td class='result-table-elem'>43200</td>
+						    <td class='result-table-elem'>16.21</td>
 						  </tr>
 						</table>
 						<br>
