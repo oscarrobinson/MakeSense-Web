@@ -113,8 +113,9 @@ echo "
 					</a>
 					</h4>
 				</div>
-				<div id='center'>
+				
 					<div id='collapseFive' class='panel-collapse collapse'>
+						<div id='center'>
 						<div class='panel-body'>
 							<h1>API's</h1>
 							<h2>Web App Integration API</h2>
@@ -124,8 +125,32 @@ echo "
 							<p>Use this API to build your own custom sensor nodes with Arduino's. Click the Find out More button and have a look through the 'README'</p>
 							<p><a class='btn btn-default' href='https://github.com/jay-shah/MakeSense-Arduino' role='button'>Find Out More &raquo;</a></p>
 						</div>
+						</div>
+
+						<div id='api-text-1' style='padding:50px;'>
+
+							<h3>About the MakeSense Python API</h3>
+							<p>The makesensepy python module is designed to allow users to add data from their own sensor systems to the MakeSense platform.  This API was specifically requested by our client and means users will be able to use any hardware with the MakeSense platform, not just our own proprietary sensor network hardware.  The scope of what the MakeSense web application can be used for is therefore vastly expanded.  The API will also be used by the MakeSense team for the more rapid development of gateway platforms for new sensor systems.  This API acts as a convenient adaptor between hardware and the MakeSense web platform.  In future iterations, the piGateway.py code used in the current gateway platform can be refactored to use this code.</p>
+
+							<h3>About the MakeSense Arduino API</h3>
+
+							<p>The MakeSense Arduino API is designed to allow users to create their own sensor nodes for use with the Stamp hardware and their own Arduinos.  This API acts as an adaptor to the stamp and hides the code needed to properly format data and send it to the stamp over the Arduino’s serial port.  This means sending data to the MakeSense platform from an Arduino connected to a MakeSense sensor network is as easy as using a send() function.  User’s won’t have to worry about properly formatting their data or manually sending strings over the serial port.</p>
+
+
+							<h3>Future Development</h3>
+
+							<p>Throughout the development process, we have always had the future development of the system in mind.  The aim has always been to make the MakeSense platform as flexible as possible so it can be used in a wide range of applications.  The code for the web application has been written so that the design is consistent across the code base and the code itself is sensibly written to act as its own documentation.  The first focus of future development of the system would be implementing more of the should have and could have requirements identified for the system.  A mobile app could also be created.  As our data is stored in an SQL database, it is platform independent and could therefore be accessed by a range of different applications on different devices.   There is also scope to make access to the sensor data itself easier for users by creating an API to access and perform analysis on the sensor data a user has collected.</p>
+
+							<p>However, our testing has shown that the current combination of SQL database to store sensor data and the Highcharts graphing library to display data does not handle high volumes of high volumes of data very efficiently.  Future developments of the web application could involve porting the entire system to use NoSQL, a more modern way of storing data that would give improved extensibility to the system and allow large volumes of data to be more efficiently handled.  Graphing would also need to be optimised so that a single graph does not have so many data points as graphs can take a while to generate with the current system.</p>
+
+							<p>On the hardware side, the current state of the product is less complete.  Primary objectives would be to improve the usability of the hardware so that a user can easily set up their own network without any expert knowledge.  This would possibly involve moving to more reliable hardware as tests on our current system have shown the current hardware has somewhat flaky performance.  Work would also need to be done to improve the battery life of the sensor nodes.  Most of the technical work for the sensor network hardware is complete but the next step is making the product more attractive  by designing proper casing and improving the overall user experience.</p>
+
+							<h3>Collaboration Opportunities</h3>
+
+							<p>There are two routes the MakeSense hardware could take: continuing development to create a product that can be sold to people that require sensor networks for a variety of applications, or making the code on the sensor nodes and gateways open source and provide advice on how people can create their own networks.  Users of this code could then view and analyse their sensor network data on the closed source MakeSense web application which we would continue to work on ourselves.  Both options would mean the entire hardware code would need to be refactored and properly documented as much of it is definitely still stuck in the prototyping and experimentation stage.  There is possible demand for both of these options but the latter option of making the hardware code open source could lead to exciting developments such as the integration of MakeSense with all sorts of projects and products that people are working on.  The work we have done makes the somewhat complex idea of creating distributed sensor networks a lot more accessible to less experienced programmers.  It would be beneficial for both the open source community and us to cease working on our own hardware and instead focus our efforts on the web application.</p>
+
+						</div>
 					</div>
-				</div>
 			</div>
 			
 			<div class='panel panel-default'>
