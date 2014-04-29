@@ -164,7 +164,7 @@ echo "
 				<div id='collapseSix' class='panel-collapse collapse'>
 					<div class='panel-body'>
 						<div class='container'>
-							<p>To find out what MakeSense is, click the link below!</p>
+							<p>Need help setting up your network? click the link below.</p>
 							<p><a class='btn btn-default' href='manual.php' role='button'>Show me how! &raquo;</a></p>
 						</div>
 					</div>
@@ -373,6 +373,27 @@ echo "
 									<h2>Sensor Node</h2>
 									<img src='img/Models/sensor1.png' style='max-height:500px;max-width:800px; margin-bottom:30px;'>
 								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+
+			<div class='panel panel-default'>
+				<div class='panel-heading'>
+					<h4 class='panel-title'>
+					<a data-toggle='collapse' data-parent='#accordion' href='#collapseFourteen'>
+						Forum and Wiki
+					</a>
+					</h4>
+				</div>
+				<div id='collapseFourteen' class='panel-collapse collapse'>
+					<div class='panel-body'>
+							<div class='container'>
+								<p>Have any questions? post in our forum.</p>
+								<p><a class='btn btn-default' href='http://makesense.boards.net/' role='button'>Go To Forum</a></p>
+
+								<p>Want more information about MakeSense? Visit our Wiki.</p>
+								<p><a class='btn btn-default' href='http://uclteam10.azurewebsites.net/wiki/index.php?title=Main_Page' role='button'>Go To Wiki</a></p>
 							</div>
 					</div>
 				</div>
