@@ -115,6 +115,12 @@ echo "
 				</div>
 				<div id='collapseFour' class='panel-collapse collapse'>
 					<div class='panel-body'>
+					<div class='center-arch'>
+							<h2>Database Entity Relationship Diagram</h2>
+						<img src='img/Arch_Diagrams/ent1.png' style='max-height:600px;max-width:900px; margin-bottom:30px;' >	
+
+						<h2>Database Tables</h2>
+						<img src='img/Arch_Diagrams/ent2.png' style='max-height:600px;max-width:900px; margin-bottom:30px;' >
 					
 						<h2>Deployment Diagram<h2>
 						<img src='img/Arch_Diagrams/DeploymentDiagram.png' style='max-height:800px;max-width:1100px; margin-bottom:30px;' >	
@@ -125,7 +131,9 @@ echo "
 						
 						<h2>Future Web App Implementation<h2>
 						<img src='img/Arch_Diagrams/WebAppFutureImplementation.png' style='max-height:600px;max-width:900px; margin-bottom:30px;' >	
-						
+
+				
+					</div>
 					</div>
 				</div>
 			</div>
@@ -182,7 +190,7 @@ echo "
 				<div class='panel-heading'>
 					<h4 class='panel-title'>
 					<a data-toggle='collapse' data-parent='#accordion' href='#collapseSix'>
-						Manual
+						System and User Manual
 					</a>
 					</h4>
 				</div>
@@ -191,6 +199,9 @@ echo "
 						<div class='container'>
 							<p>Need help setting up your network? click the link below.</p>
 							<p><a class='btn btn-default' href='manual.php' role='button'>Show me how! &raquo;</a></p>
+							<br>
+							<p>Want detailed information about how the whole system works?</p>
+							<p><a class='btn btn-default' href='/sysman.pdf' role='button'>Download System Manual &raquo;</a></p>
 						</div>
 					</div>
 				</div>

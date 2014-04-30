@@ -7133,3 +7133,9 @@ text-align: center;
   border: 1px solid black !important;
 }
 
+.center-arch {
+text-align:center;
+width:100%;
+display:block;
+margin:auto;
+}
