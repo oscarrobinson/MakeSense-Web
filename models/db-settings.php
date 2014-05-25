@@ -6,7 +6,7 @@ http://usercake.com
 
 //Database Information
 /**********For Azure Login**************/
-$db_host = "makesensemain.cr7zmp8drpxe.eu-west-1.rds.amazonaws.com"; //Host address (most likely localhost)
+$db_host = "makesensemain.cr7zmp8drpxe.eu-west-1.rds.amazonaws.com:3306"; //Host address (most likely localhost)
 $db_name = "makesense_main"; //Name of Database
 $db_user = "makesense"; //Name of database user
 $db_pass = "this_is_R0NKERS"; //Password for database user 
