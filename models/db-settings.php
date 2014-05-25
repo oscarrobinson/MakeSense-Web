@@ -6,10 +6,10 @@ http://usercake.com
 
 //Database Information
 /**********For Azure Login**************/
-$db_host = "eu-cdbr-azure-north-b.cloudapp.net"; //Host address (most likely localhost)
-$db_name = "makesensemain"; //Name of Database
-$db_user = "b56834bde0c85e"; //Name of database user
-$db_pass = "87a230d7"; //Password for database user 
+$db_host = "makesensemain.cr7zmp8drpxe.eu-west-1.rds.amazonaws.com"; //Host address (most likely localhost)
+$db_name = "makesense_main"; //Name of Database
+$db_user = "makesense"; //Name of database user
+$db_pass = "this_is_R0NKERS"; //Password for database user 
 
 /**********For Localhost Login**********
 $db_host = "localhost"; //Host address (most likely localhost)

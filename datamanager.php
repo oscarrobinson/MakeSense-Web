@@ -13,10 +13,10 @@ class DataManager
     private $networksTable = "networks";
  
     public function __construct(){
-        $this->host="eu-cdbr-azure-north-b.cloudapp.net";
-        $this->user="b56834bde0c85e";
-        $this->passwd="87a230d7";
-        $this->db="makesensemain";
+        $this->host="makesensemain.cr7zmp8drpxe.eu-west-1.rds.amazonaws.com";
+        $this->user="makesense";
+        $this->passwd="this_is_R0NKERS";
+        $this->db="makesense_main";
         $this->connectToDatabase();
     }
 
