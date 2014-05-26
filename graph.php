@@ -299,6 +299,7 @@ echo"
         sensorId.push($(selected).val());
       });
       console.log('SENSOR SELECTED: '+sensorId);
+      if (sensorId.length > 0){
       $.ajax({
         url:'sensorinfocontroller.php',
         type:'post',
@@ -312,6 +313,7 @@ echo"
 
         }
       });
+      }
     }
 
     $( '#sensorIdSelector' ).change(function () {
@@ -326,6 +328,7 @@ echo"
       $(\"#sensorList option:selected\").each(function(i, selected){ 
           sensorIds.push($(selected).val());
         });
+      if(sensorIds.length > 0){
       $.ajax({
         url:'sensorinfocontroller.php',
         type: 'post',
@@ -345,6 +348,7 @@ echo"
           updateSensorInfo();
         }
       });
+      }
       
     }
 
@@ -475,7 +479,7 @@ echo"
       $.ajax({
           url: 'sensorinfocontroller.php',
           type: 'post',
-          data: {requestId: 3, newNetName: newNetName, netId: getNetworkSelected()},
+          data: {requestId: '3', newNetName: newNetName, netId: getNetworkSelected()},
           success:function(data){
             console.log(data);
             $('#networkNameEditModal').modal('hide');
