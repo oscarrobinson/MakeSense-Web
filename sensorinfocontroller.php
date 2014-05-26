@@ -39,7 +39,7 @@ else if ($requestId == 2){
 
 	$sensorInfo = $dataManager->getSensor($sensorId[0]);
 	if (count($sensorInfo) > 0){
-		$sensorInfo = $dataManager->getSensor($sensorId[0])[0];
+		$sensorInfo = $sensorInfo[0];
 	}
 
 	$returnArray = array($sensorInfo[1], $sensorInfo[2]);
