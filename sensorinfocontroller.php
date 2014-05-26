@@ -32,6 +32,7 @@ if($requestId == 1){
 	$returnArray = array($networkInfoArray[1], $networkInfoArray[2], $networkInfoArray[3], $ontologyInfoArray[0], $ontologyInfoArray[1],$ontologyInfoArray[2], $sensorSelector);
 
 	echo json_encode($returnArray);
+	
 }
 
 else if ($requestId == 2){
