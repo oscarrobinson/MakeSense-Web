@@ -303,7 +303,6 @@ echo"
       $.ajax({
         url:'sensorinfocontroller.php',
         type:'post',
-        datatype:'string',
         data: {requestId: '2', sensorId: sensorId},
         success:function(data){
           console.log('DATA RECEIVED: ' + data);
@@ -332,7 +331,6 @@ echo"
       $.ajax({
         url:'sensorinfocontroller.php',
         type: 'post',
-        datatype: 'string',
         data: {requestId: '1', networkId: netId, ontologyId: ontId, sensorIdList: sensorIds},
         success:function(data){
           console.log(data);
@@ -364,7 +362,6 @@ echo"
         $.ajax({
           url: 'apicontroller.php',
           type: 'post',
-          datatype: 'string',
           data: {username: '".$loggedInUser->username."', id:'".$loggedInUser->user_id."', requestCode: '40', name:networkNameText, netId:networkIdText, description:''},
           success:function(data){
             console.log(data);
