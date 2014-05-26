@@ -37,7 +37,10 @@ if($requestId == 1){
 else if ($requestId == 2){
 	$sensorId = $_POST['sensorId'];
 
-	$sensorInfo = $dataManager->getSensor($sensorId[0])[0];
+	$sensorInfo = $dataManager->getSensor($sensorId[0])
+	if (count($sensorInfo) > 0){
+		$sensorInfo = $dataManager->getSensor($sensorId[0])[0];
+	}
 
 	$returnArray = array($sensorInfo[1], $sensorInfo[2]);
 
