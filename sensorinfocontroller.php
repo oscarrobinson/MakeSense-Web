@@ -14,9 +14,15 @@ if($requestId == 1){
 
 	$sensorIds = $_POST['sensorIdList'];
 
-	$networkInfoArray = $dataManager->getNetwork($netId)[0];
+	$networkInfoArray = $dataManager->getNetwork($netId);
+	if (count($networkInfoArray)>0){
+		$networkInfoArray = $networkInfoArray[0];
+	}
 
-	$ontologyInfoArray = $dataManager->getOntology($ontId)[0];
+	$ontologyInfoArray = $dataManager->getOntology($ontId);
+	if (count($ontologyInfoArray) > 0){
+		$ontologyInfoArray = $ontologyInfoArray[0];
+	}
 
 	$sensorSelector = $dataManager->getSelector($sensorIds, False, "sensorInfoSelector");
 
