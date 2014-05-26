@@ -13,7 +13,7 @@ class DataManager
     private $networksTable = "networks";
  
     public function __construct(){
-        $this->host="ec2-54-72-150-160.eu-west-1.compute.amazonaws.com";
+        $this->host="ec2-54-76-115-0.eu-west-1.compute.amazonaws.com";
         $this->user="makesense";
         $this->passwd="this_is_R0NKERS";
         $this->db="makesense_main";
