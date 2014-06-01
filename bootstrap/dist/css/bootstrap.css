@@ -6868,12 +6868,13 @@ td.visible-print {
 
 
 
-#graph{
+#graph-container{
     width: 800px; 
-    height: 400px; 
+    height: 402px; 
     margin-left:320px;
     margin-bottom:30px;
 	border:1px solid;
+  position: relative;
 }
 #controls{
     width:250px;
@@ -7138,4 +7139,21 @@ text-align:center;
 width:100%;
 display:block;
 margin:auto;
+}
+
+
+/*graph.php loading stuff*/
+
+#graph_loading {
+      display:    none;
+    position:   absolute;
+    top:        0;
+    left:       0;
+    width: 798px; 
+    height: 400px; 
+    z-index: 1000;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('/img/load.gif') 
+                50% 50% 
+                no-repeat;
 }

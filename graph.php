@@ -14,7 +14,13 @@ echo "
 		<div class='background block_1'>
 			<div id = 'testcenter'>
 				
-				<div id='graph'>
+				
+        <div id='graph-container'>
+        <!-- Loading Display -->
+        <div id='graph_loading'>
+        </div>
+        <div id='graph'>
+        </div>
 				</div>
 				
 				
@@ -213,6 +219,9 @@ echo "
             </div>
           </div>
         </div>
+  
+
+
 
 
 
@@ -273,6 +282,7 @@ echo"
   				sensors.push([$(selected).val(),$(selected).text()]);
 			   });
         	$.ajax({
+              complete: function() { $('#graph_loading').hide(); },
           	  url: 'graphdata.php',
           	  type: 'post',
          	  data: { sensorArray: sensors },
@@ -375,41 +385,42 @@ echo"
     });
 
     
-    var selectedNetwork = \"\";
+    var selectedNetwork = '';
 
-    $( \"#networkList\" ).change(function () {
+    $( '#networkList' ).change(function () {
       console.log('Network select change');
-    	var str = \"\";
-   		$( \"#networkList option:selected\" ).each(function() {
-    		str += $( this ).val() + \" \";
+    	var str = '';
+   		$( '#networkList option:selected' ).each(function() {
+    		str += $( this ).val() + ' ';
         selectedNetwork = str;
     	});
       
-        $.ajax({
-            url: 'ontologylist.php',
+      $.ajax({
+        beforeSend: function() { console.log('WHY THE FUCK DOESNT IT WORK???'); $('#graph_loading').show(); },
+        url: 'ontologylist.php',
+        type: 'post',
+        datatype: 'string',
+        data: { network: str },
+        success:function(data){
+          $('#ontologyselectlist').html(data);
+          $('#ontologyselectlist').prop('selectedIndex',0);
+          console.log('In Ontology List generation Ajax:'+getOntologySelected());
+          var ont = '';
+          ont += getOntologySelected();
+          console.log(ont);
+          $.ajax({
+            url: 'sensorlist.php',
             type: 'post',
-            datatype: 'string',
-            data: { network: str },
+            data: { ontology: ont, network: str},
             success:function(data){
-                $('#ontologyselectlist').html(data);
-                $('#ontologyselectlist').prop('selectedIndex',0);
-                console.log('In Ontology List generation Ajax:'+getOntologySelected());
-                var ont = '';
-                ont += getOntologySelected();
-                console.log(ont);
-                $.ajax({
-                  url: 'sensorlist.php',
-                  type: 'post',
-                  data: { ontology: ont, network: str},
-                  success:function(data){
-                      $('#sensorselectlist').html(data);
-                      loadInfo();
-                      loadGraph();
-                  }
-
-                });
+              $('#sensorselectlist').html(data);
+              loadInfo();
+              loadGraph();
             }
-        });
+
+          });
+        }
+      });
   	}).change();
 
     
@@ -421,6 +432,7 @@ echo"
         str += $( this ).val() + \" \";
       });
         $.ajax({
+            beforeSend: function() { $('#graph_loading').show(); },
             url: 'sensorlist.php',
             type: 'post',
             data: { ontology: str, network: getNetworkSelected()[0] },
