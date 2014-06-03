@@ -25,6 +25,9 @@ echo "
 				
 				
 				<div id='selectedInfo'>
+          <!-- Loading Display -->
+          <div id='info_loading'>
+          </div>
 					<div class='panel-group' id='accordion'>
 						<div class='panel panel-default'>
 							<div class='panel-heading'>
@@ -341,6 +344,9 @@ echo"
       $.ajax({
         url:'sensorinfocontroller.php',
         type: 'post',
+        complete: function () {  
+          $('#info_loading').hide();
+        },
         data: {requestId: '1', networkId: netId, ontologyId: ontId, sensorIdList: sensorIds},
         success:function(data){
           console.log(data);
@@ -396,7 +402,7 @@ echo"
     	});
       
       $.ajax({
-        beforeSend: function() { console.log('WHY THE FUCK DOESNT IT WORK???'); $('#graph_loading').show(); },
+        beforeSend: function() { $('#graph_loading').show(); $('#info_loading').show();},
         url: 'ontologylist.php',
         type: 'post',
         datatype: 'string',
