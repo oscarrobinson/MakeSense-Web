@@ -2,6 +2,7 @@
 ini_set('display_errors', 'On');
 include_once "datamanager.php";
 header('Content-Type: application/javascript');
+header("Access-Control-Allow-Origin: *");
 
 //ERROR CODES
 $duplicateEntryError = 23000;
