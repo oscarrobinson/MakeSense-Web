@@ -176,8 +176,7 @@ class DataManager
     public function getSensorsInNetwork($networkId){
         $stmt = $this->conn->prepare("SELECT DISTINCT sensor_id FROM sensors WHERE network_id=:netId");
         $stmt->execute(array(':netId' => $networkId));
-        $data = $stmt->fetchAll();
-        return $data;
+        return $stmt->fetchAll();
     }
 
     public function getReadingsForSensors($sensorIds){
