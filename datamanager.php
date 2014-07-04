@@ -174,8 +174,8 @@ class DataManager
 
 
     public function getSensorsInNetwork($networkId){
-        $sql_select = "SELECT sensor_id FROM sensors WHERE network_id='".$networkId."'";
-        $stmt = $this->conn->query($sql_select);
+        $stmt = "SELECT sensor_id FROM sensors WHERE network_id=:netId";
+        $stmt->execute(array(':netId' => $networkId));
         $data = $stmt->fetchAll();
         $returnArray = array();
         foreach($data as $row)
@@ -183,6 +183,16 @@ class DataManager
             array_push($returnArray, $row[0]);
         }
         return $returnArray;
+    }
+
+    public function getReadingsForSensors($sensorIds){
+        $sensorReadings = array();
+        foreach($sensorIds as $sensorId){
+            $stmt = $this->conn->prepare("SELECT * FROM data WHERE sensor_id=:sensorId");
+            $stmt->execute(array(':sensorId' => $sensorId));
+            $sensorReadings->push($stmt->fetchAll());
+        }
+        return $sensorReadings;
     }
 
     public function getOntologyForSensor($sensorId){
