@@ -177,12 +177,7 @@ class DataManager
         $stmt = $this->conn->prepare("SELECT sensor_id FROM sensors WHERE network_id=:netId");
         $stmt->execute(array(':netId' => $networkId));
         $data = $stmt->fetchAll();
-        $returnArray = array();
-        foreach($data as $row)
-        {
-            array_push($returnArray, $row);
-        }
-        return $returnArray;
+        return $data;
     }
 
     public function getReadingsForSensors($sensorIds){
