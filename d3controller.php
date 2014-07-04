@@ -17,6 +17,8 @@ $getSensorNetworkData = "10";
 
 $dataManager = new DataManager();
 
+echo $_POST['username'];
+
 
 $requestCode = $_POST['request'];
 
