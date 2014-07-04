@@ -174,7 +174,7 @@ class DataManager
 
 
     public function getSensorsInNetwork($networkId){
-        $stmt = "SELECT sensor_id FROM sensors WHERE network_id=:netId";
+        $stmt = $this->conn->prepare("SELECT sensor_id FROM sensors WHERE network_id=:netId");
         $stmt->execute(array(':netId' => $networkId));
         $data = $stmt->fetchAll();
         $returnArray = array();
