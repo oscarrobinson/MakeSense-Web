@@ -17,14 +17,12 @@ $getSensorNetworkData = "10";
 
 $dataManager = new DataManager();
 
-echo $_POST['username'];
 
-
-$requestCode = $_POST['request'];
+$requestCode = $_GET['request'];
 
 if ($requestCode==$authenticationCode){
-	$username = $_POST['username'];
-	$id = $_POST['apiId'];
+	$username = $_GET['username'];
+	$id = $_GET['apiId'];
 	$userValid = $dataManager->validateApiUser($username, $id);
 	if ($userValid){
 		echo $userValidCode;
@@ -35,12 +33,12 @@ if ($requestCode==$authenticationCode){
 }
 
 else if ($requestCode==$getSensorNetworkData){
-	$username = $_POST['username'];
-	$id = $_POST['id'];
+	$username = $_GET['username'];
+	$id = $_GET['id'];
 	$userValid = $dataManager->validateApiUser($username, $id);
 
 	if ($userValid){
-		$netId = $_POST['netId'];
+		$netId = $_GET['netId'];
 		$sensorData = array();
 		try {
 			$sensorIds = $dataManager->getSensorsInNetwork($netId);
