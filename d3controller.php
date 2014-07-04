@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 'On');
 include_once "datamanager.php";
-
+header('Content-Type: application/javascript');
 
 //ERROR CODES
 $duplicateEntryError = 23000;
