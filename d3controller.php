@@ -11,7 +11,7 @@ $badRequest = 0;
 
 //REQUEST CODES
 $authenticationCode = "1";
-$getSensorsInNetwork = "10";
+$getSensorNetworkData = "10";
 
 
 
