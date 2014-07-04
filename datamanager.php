@@ -182,7 +182,7 @@ class DataManager
     public function getLatestReadingsForSensors($sensorIds){
         $sensorReadings = array();
         foreach($sensorIds as $sensorId){
-            $stmt = $this->conn->prepare("SELECT * FROM (SELECT * FROM data WHERE sensor_id=:sensorId order by timestamp asc) WHERE rownum=1;");
+            $stmt = $this->conn->prepare("SELECT  * FROM (SELECT * FROM makesense_main.data WHERE sensor_id=:sensorId order by timestamp desc limit 1) as ronk;");
             $stmt->execute(array(':sensorId' => $sensorId));
             array_push($sensorReadings, $stmt->fetchAll());
         }
