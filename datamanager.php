@@ -190,7 +190,7 @@ class DataManager
         foreach($sensorIds as $sensorId){
             $stmt = $this->conn->prepare("SELECT * FROM data WHERE sensor_id=:sensorId");
             $stmt->execute(array(':sensorId' => $sensorId));
-            $sensorReadings->push($stmt->fetchAll());
+            $sensorReadings = $stmt->fetchAll();
         }
         return $sensorReadings;
     }
