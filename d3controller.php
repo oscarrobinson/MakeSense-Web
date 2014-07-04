@@ -17,9 +17,8 @@ $getSensorNetworkData = "10";
 
 $dataManager = new DataManager();
 
-echo  $_POST['requestCode'];
 
-$requestCode = $_POST['requestCode'];
+$requestCode = $_POST['request'];
 
 if ($requestCode==$authenticationCode){
 	$username = $_POST['username'];
