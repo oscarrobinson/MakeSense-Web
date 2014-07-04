@@ -180,7 +180,7 @@ class DataManager
         $returnArray = array();
         foreach($data as $row)
         {
-            array_push($returnArray, $row);
+            array_push($returnArray, $row[0]);
         }
         return $returnArray;
     }

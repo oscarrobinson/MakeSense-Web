@@ -42,6 +42,7 @@ else if ($requestCode==$getSensorNetworkData){
 		$sensorData = array();
 		try {
 			$sensorIds = $dataManager->getSensorsInNetwork($netId);
+			echo $sensorIds;
 			$sensorData = $dataManager->getReadingsForSensors($sensorIds);
 		}
 		catch(PDOException $e){
