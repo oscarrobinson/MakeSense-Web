@@ -45,7 +45,7 @@ else if ($requestCode==$getSensorNetworkData){
 			echo $sensors[0];
 			$sensorIds = array();
 			foreach($sensors as $sensor){
-				echo $sensor;
+				echo $sensor[0];
 				array_push($sensorIds, $sensor[0]);
 			}
 			//$sensorData = $dataManager->getReadingsForSensors($sensorIds);
