@@ -178,7 +178,11 @@ class DataManager
         $stmt->execute(array(':netId' => $networkId));
         $data = $stmt->fetchAll();
         $returnArray = array();
-        return $data;
+        foreach($data as $row)
+        {
+            array_push($returnArray, $row);
+        }
+        return $returnArray;
     }
 
     public function getReadingsForSensors($sensorIds){
