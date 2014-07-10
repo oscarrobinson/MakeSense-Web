@@ -10,7 +10,6 @@ if (!($loggedInUser->checkPermission(array(2)))){
 echo "
 
 <body>
-test
 	<div class='content'>
 		<div class='background block_1'>
 			<div id = 'testcenter'>
